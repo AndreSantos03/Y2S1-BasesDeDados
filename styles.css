@@ -1,0 +1,30 @@
+body {
+    background-color: #FFFBFE;
+    overflow: hidden;
+}
+
+
+.logo {
+    position: absolute;
+    left: 4%;
+    top: 2%;
+    height: 38px;
+    width: 201px;
+}
+
+.image {
+    position: absolute;
+    left: 9%;
+    top: 15%;
+    height: 65%;
+    width: auto;
+}
+
+.retangulo {
+    position: absolute;
+    width: 110%;
+    height: 200%;
+    left: 45%;
+    background: #6750A4;
+    transform: rotate(17.26deg);
+}

@@ -1,5 +1,5 @@
 <?php
-$dbh = new PDO('sqlite:database/database.db');
+$dbh = new PDO('sqlite:database.db');
 $pepper = "my_secret_pepper";
 $password = "my_password";
 
