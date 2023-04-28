@@ -3,8 +3,7 @@ CREATE TABLE user (
     "name" TEXT NOT NULL,
     "username" TEXT NOT NULL UNIQUE,
     "email" TEXT NOT NULL UNIQUE,
-    "password_hash" TEXT NOT NULL,
-    "password_salt" TEXT NOT NULL,
+    "password" TEXT NOT NULL,
     "privilege_id" INTEGER NOT NULL,
     FOREIGN KEY(privilege_id) REFERENCES Privilege(id)
 );
