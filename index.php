@@ -35,13 +35,21 @@
                     <input type="password" id="password" name="password" placeholder="Enter your password">
                 </div>
                 <div class="remember_forgot">
-                    <input type="checkbox" id="remember" name="remember">
-                    <label for="remember">Remember me</label>
+                    <label class="container">
+                        <input type="checkbox" checked="checked">
+                        <span class="checkmark"></span>
+                        Remember me
+                    </label>
                     <a href="#">Forgot password?</a>
                 </div>
                 <div class="btnSubmit">
-                    <button type="submit" id="login_btnSubmit">Submit</button>
+                    <button type="submit" id="login_btnSubmit">SIGN IN</button>
                 </div>
             </form>
         </div>
+        <div class="create_account">
+            <p>Don’t have an account yet?</p>
+            <a href="#">Create an account</a>
+        </div>
+    </div>
 </body>
