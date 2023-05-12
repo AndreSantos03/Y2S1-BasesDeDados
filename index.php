@@ -3,7 +3,9 @@
 
 <head>
     <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <link rel="stylesheet" href="css/styles.css">
+</head>
 
 <body>
     <header>
@@ -22,7 +24,7 @@
             <button class="small_form_box_btnHelp">Need help?</button>
         </div>
         <div class="wrapper">
-            <form action="#">
+            <form action="#" method="POST">
                 <div class="input_box">
                     <input type="email" id="email" name="email" placeholder="Enter your email">
                 </div>
