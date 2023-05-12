@@ -4,7 +4,6 @@ declare(strict_types=1);
 class User
 {
     public int $id;
-    public string $username;
     public string $firstName;
     public string $lastName;
     public string $city;
@@ -17,7 +16,6 @@ class User
 
     public function __construct(
         int $id,
-        string $username,
         string $firstName,
         string $lastName,
         string $city,
@@ -28,7 +26,6 @@ class User
         string $department
     ) {
         $this->id = $id;
-        $this->username = $username;
         $this->firstName = $firstName;
         $this->lastName = $lastName;
         $this->city = $city;
@@ -57,7 +54,7 @@ class User
     static function getUserWithPassword(PDO $db, string $email, string $password): ?User
     {
         $stmt = $db->prepare('
-        SELECT UserId, FirstName, LastName, City, Country, Phone, Username, Email, Privilege,Department
+        SELECT UserId, FirstName, LastName, City, Country, Phone, Email, Privilege,Department
         FROM User
         WHERE lower(email) = ? AND password = ?
       ');
@@ -72,7 +69,6 @@ class User
                 $user['City'],
                 $user['Country'],
                 $user['Phone'],
-                $user['Username'],
                 $user['Email'],
                 $user['Privilege'],
                 $user['Department']
@@ -85,7 +81,7 @@ class User
     static function getUser(PDO $db, int $id): User
     {
         $stmt = $db->prepare('
-        SELECT UserId, FirstName, LastName, City, Country, Phone, Username, Email, Privilege,Department
+        SELECT UserId, FirstName, LastName, City, Country, Phone, Email, Privilege,Department
         FROM User 
         WHERE UserId = ?
       ');
@@ -100,7 +96,6 @@ class User
             $user['City'],
             $user['Country'],
             $user['Phone'],
-            $user['Username'],
             $user['Email'],
             $user['Privilege'],
             $user['Department']

@@ -1,11 +1,10 @@
 CREATE TABLE User (
     "UserId" INTEGER PRIMARY KEY AUTOINCREMENT,
-    "FirstName" TEXT(40),
-    "LastName" TEXT(20),
+    "FirstName" TEXT(40) NOT NULL,
+    "LastName" TEXT(20) NOT NULL,
     "City" TEXT(40),
     "Country" TEXT(40),
     "Phone" TEXT(24),
-    "Username" TEXT(32) NOT NULL,
     "Email" TEXT(60) NOT NULL,
     "Password" TEXT(72) NOT NULL,
     "Privilege" TEXT(32) NOT NULL,

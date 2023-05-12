@@ -1,3 +1,14 @@
+<?php
+declare(strict_types=1);
+
+require_once(__DIR__ . '/utils/session.php');
+$session = new Session();
+
+require_once(__DIR__ . '/database/connection.db.php');
+
+$db = getDatabaseConnection();
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -24,7 +35,7 @@
             <button class="small_form_box_btnHelp">Need help?</button>
         </div>
         <div class="wrapper">
-            <form action="#" method="POST">
+            <form action="../actions/action_login.php" method="post">
                 <div class="input_box">
                     <input type="email" id="email" name="email" placeholder="Enter your email">
                 </div>
