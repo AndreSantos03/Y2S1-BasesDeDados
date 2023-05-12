@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 
 
-
 body {
     background-color: #FFFBFE;
     overflow: hidden;
@@ -12,8 +11,7 @@ body {
     position: absolute;
     left: 3%;
     top: 2%;
-    height: 38px;
-    width: 201px;
+    width: 12.5625em;
 }
 
 .image {
@@ -21,13 +19,12 @@ body {
     left: 9%;
     top: 15%;
     height: 65%;
-    width: auto;
 }
 
 .retangulo {
     position: absolute;
     width: 110%;
-    height: 200%;
+    height: 210%;
     left: 45%;
     background: #6750A4;
     transform: rotate(17.26deg);
