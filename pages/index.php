@@ -31,7 +31,7 @@ $session = new Session();
             <button class="small_form_box_btnHelp">Need help?</button>
         </div>
         <div class="wrapper">
-            <form action="/../actions/action_register.php" method="post">
+            <form action="/../actions/action_login.php" method="post">
                 <div class="input_box">
                     <input type="email" id="email" name="email" placeholder="Enter your email">
                 </div>

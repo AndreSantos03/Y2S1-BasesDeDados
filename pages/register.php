@@ -29,10 +29,10 @@
                     <input type="email" id="email" name="email" placeholder="Enter your email">
                 </div>
                 <div class="input_box">
-                    <input type="text" id="fname" name="fname" placeholder="Enter your first name">
+                    <input type="text" id="firstName" name="firstName" placeholder="Enter your first name">
                 </div>
                 <div class="input_box">
-                    <input type="text" id="lname" name="lname" placeholder="Enter your last name">
+                    <input type="text" id="lastName" name="lastName" placeholder="Enter your last name">
                 </div>
                 <div class="input_box">
                     <span id="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"

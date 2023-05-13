@@ -6,24 +6,24 @@ class User
     public int $id;
     public string $firstName;
     public string $lastName;
-    public string $city;
-    public string $country;
-    public string $phone;
-    public string $email;
+    public ?string $city;
+    public ?string $country;
+    public ?string $phone;
+    public ?string $email;
     public string $privilege;
-    public string $department;
+    public ?string $department;
 
 
     public function __construct(
         int $id,
         string $firstName,
         string $lastName,
-        string $city,
-        string $country,
-        string $phone,
+        ?string $city,
+        ?string $country,
+        ?string $phone,
         string $email,
         string $privilege,
-        string $department
+        ?string $department
     ) {
         $this->id = $id;
         $this->firstName = $firstName;
@@ -54,10 +54,10 @@ class User
     static function getUserWithPassword(PDO $db, string $email, string $password): ?User
     {
         $stmt = $db->prepare('
-        SELECT UserId, FirstName, LastName, City, Country, Phone, Email, Privilege,Department
+        SELECT UserId, FirstName, LastName, City, Country, Phone, Email, Privilege, Department, Password
         FROM User
-        WHERE lower(email) = ? AND password = ?
-      ');
+        WHERE lower(email) = ?
+    ');
         $stmt->execute(array(strtolower($email)));
         $user = $stmt->fetch();
 

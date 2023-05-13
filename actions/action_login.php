@@ -11,7 +11,7 @@ $db = getDatabaseConnection();
 
 $user = User::getUserWithPassword($db, $_POST['email'], $_POST['password']);
 
-if ($customer) {
+if ($user) {
     $session->setId($user->id);
     $session->setName($user->name());
     $session->addMessage('success', 'Login successful!');
@@ -19,5 +19,5 @@ if ($customer) {
     $session->addMessage('error', 'Wrong password!');
 }
 
-header('Location: ' . $_SERVER['HTTP_REFERER']);
+header('Location: ' . $_SERVER['HTTP_REFERER']); // This needs to be changed, to go to the home page
 ?>
