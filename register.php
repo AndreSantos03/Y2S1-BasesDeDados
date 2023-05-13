@@ -1,10 +1,3 @@
-<?php
-declare(strict_types=1);
-
-require_once(__DIR__ . '/utils/session.php');
-$session = new Session();
-?>
-
 <!DOCTYPE html>
 <html>
 
@@ -25,15 +18,21 @@ $session = new Session();
     </div>
     <div class="retangulo">
     </div>
-    <div class="big_form_box">
+    <div class="big_form_box_register">
         <div class="small_form_box">
-            <h3 class="small_form_box_text">ALREADY MEMBERS</h3>
+            <h3 class="small_form_box_text">NEW MEMBERS</h3>
             <button class="small_form_box_btnHelp">Need help?</button>
         </div>
         <div class="wrapper">
-            <form action="/actions/action_login.php" method="post">
+            <form action="../actions/action_login.php" method="post">
                 <div class="input_box">
                     <input type="email" id="email" name="email" placeholder="Enter your email">
+                </div>
+                <div class="input_box">
+                    <input type="text" id="fname" name="fname" placeholder="Enter your first name">
+                </div>
+                <div class="input_box">
+                    <input type="text" id="lname" name="lname" placeholder="Enter your last name">
                 </div>
                 <div class="input_box">
                     <span id="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -49,23 +48,11 @@ $session = new Session();
                         <span class="checkmark"></span>
                         Remember me
                     </label>
-                    <a href="#">Forgot password?</a>
                 </div>
                 <div class="btnSubmit">
-                    <button type="submit" id="login_btnSubmit">SIGN IN</button>
+                    <button type="submit" id="login_btnSubmit">REGISTER</button>
                 </div>
             </form>
         </div>
-        <div class="create_account">
-            <p>Don’t have an account yet?</p>
-            <a href="register.php">Create an account</a>
-        </div>
     </div>
-    <section id="messages">
-        <?php foreach ($session->getMessages() as $messsage) { ?>
-            <article class="<?= $messsage['type'] ?>">
-                <?= $messsage['text'] ?>
-            </article>
-        <?php } ?>
-    </section>
 </body>
