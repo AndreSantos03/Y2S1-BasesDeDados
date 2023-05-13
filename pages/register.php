@@ -62,7 +62,8 @@ $session = new Session();
             </form>
         </div>
         <div class="login_button">
-            <a href="/pages/index.php">Already have an account</a>
+            <p>Already have an account?</p>
+            <a href="/pages/index.php">Login</a>
         </div>
     </div>
 </body>
