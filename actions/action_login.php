@@ -21,6 +21,6 @@ if ($_SESSION['csrf'] !== $_POST['csrf']) {
         $session->addMessage('error', 'Wrong password!');
     }
 
-    header('Location: ' . $_SERVER['HTTP_REFERER']);
+    header('Location: ../pages');
 } // This needs to be changed, to go to the home page
 ?>
