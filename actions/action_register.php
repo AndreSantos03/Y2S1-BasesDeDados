@@ -14,8 +14,8 @@ if ($_SESSION['csrf'] !== $_POST['csrf']) {
     $stmt = $db->prepare('
     INSERT INTO User (FirstName, LastName, Email,Password,Privilege) VALUES (?,?,?,?,"client");
 ');
-
-    $stmt->execute(array($_POST['firstName'], $_POST['lastName'], $_POST['email'], password_hash($_POST['password'], PASSWORD_DEFAULT)));
+    $options = ['cost' => 12];
+    $stmt->execute(array($_POST['firstName'], $_POST['lastName'], $_POST['email'], password_hash($_POST['password'], PASSWORD_DEFAULT, $options)));
 
 
     header('Location: ../pages');
