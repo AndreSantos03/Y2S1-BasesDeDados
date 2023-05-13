@@ -32,6 +32,7 @@ $session = new Session();
         </div>
         <div class="wrapper">
             <form action="/../actions/action_login.php" method="post">
+                <input type="hidden" name="csrf" value="<?= $_SESSION['csrf'] ?>">
                 <div class="input_box">
                     <input type="email" id="email" name="email" placeholder="Enter your email">
                 </div>
