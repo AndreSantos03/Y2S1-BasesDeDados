@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 
-/* É preciso fazer alguma coisa com as posições do login e do register para podermos usar os templates em outras situações ou então simplesmente não usar o login e o register em outras páginas!!!*/
 body {
     background-color: #FFFBFE;
     overflow: hidden;
+    margin: 0;
 }
 
 
@@ -308,6 +308,59 @@ input[type="checkbox"]:checked#remember {
 
 .login_button a:hover {
     color: #dfdddd;
+}
+
+
+.header_button button {
+    border: none;
+    background-color: #EADDFF;
+    width: 89px;
+    height: 46px;
+    border-radius: 20px;
+}
+
+.header_button button:hover {
+    background-color: #6750A4;
+}
+
+.header_button button:hover svg {
+    color: #FFFFFF;
+}
+
+.header_button p {
+    text-align: center;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 27px;
+    color: #49454F;
+    margin-bottom: 2em;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    background-color: #F4EFF4;
+    width: 130px;
+    height: 100%;
+}
+
+.header_button button svg {
+    color: #49454F;
+    width: 30px;
+    margin-top: 0.2em;
+}
+
+.header_logo {
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+.header_logo img {
+    width: 110px;
 }
 
 /*
