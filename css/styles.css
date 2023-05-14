@@ -323,6 +323,10 @@ input[type="checkbox"]:checked#remember {
     background-color: #6750A4;
 }
 
+.header_button button:hover a svg {
+    color: #FFFFFF;
+}
+
 .header_button button:hover svg {
     color: #FFFFFF;
 }
@@ -346,6 +350,12 @@ input[type="checkbox"]:checked#remember {
     background-color: #F4EFF4;
     width: 130px;
     height: 100%;
+}
+
+.header_button button a svg {
+    color: #49454F;
+    width: 30px;
+    margin-top: 0.2em;
 }
 
 .header_button button svg {
