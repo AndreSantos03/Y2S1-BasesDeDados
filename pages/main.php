@@ -2,7 +2,9 @@
 <html>
 
 <head>
-    <title>Main Page</title>
+    <title>Helpline</title>
+    <link rel="stylesheet" href="/../css/styles.css">
+    <link rel="icon" type="image/x-icon" href="../assets/icon.ico">
 </head>
 
 <body>
