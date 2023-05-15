@@ -80,12 +80,20 @@ body {
 }
 
 .box_header {
+    border-bottom: 1px solid #CAC4D0;
+    padding-bottom: 0.8em;
     margin-left: 2em;
     margin-right: 2em;
     padding-top: 1em;
     display: grid;
-    grid-template-columns: 0.5fr 2fr 1.3fr 0.7fr 0.7fr 1fr;
+    grid-template-columns: 0.5fr 2fr 1.3fr 0.7fr 0.7fr 0.2fr;
     grid-column-gap: 28px;
+}
+
+.box_title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #tickets {
@@ -101,8 +109,6 @@ body {
 
 .search_box {
     width: 100%;
-    padding-left: 0.5em;
-    padding-right: 0.5em;
     display: flex;
     align-items: center;
     background-color: #E7E0EC;
@@ -112,7 +118,7 @@ body {
 .search_box input {
     border: none;
     background-color: #E7E0EC;
-    width: 100%;
+    width: 80%;
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 500;
@@ -134,6 +140,7 @@ body {
 
 .search_box img {
     width: 20px;
+    margin-left: 0.5em;
     margin-right: 0.1em;
     color: #6750A4;
 }
@@ -144,6 +151,13 @@ body {
     justify-content: center;
     background: #E7E0EC;
     border-radius: 20px;
+}
+
+.sort_remove {
+    border: none;
+    background-color: transparent;
+    padding: 0 0 0 0;
+    margin: 0 0 0 0;
 }
 
 .sort p {
@@ -158,6 +172,16 @@ body {
     margin-left: 0.5em;
 }
 
+.sort button svg {
+    margin-top: 0.2em;
+    width: 20px;
+    color: #6750A4;
+}
+
+.sort button:hover svg {
+    color: #49454F;
+}
+
 .sort svg {
     width: 20px;
     color: #6750A4;
@@ -166,4 +190,29 @@ body {
 .sort img {
     width: 20px;
     color: #6750A4;
+}
+
+
+.filtersbtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #6750A4;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 100px;
+}
+
+.filtersbtn svg {
+    width: 20px;
+}
+
+
+.filtersbtn:hover {
+    background-color: #EADDFF;
+}
+
+.filtersbtn:hover svg {
+    color: #49454F;
 }
