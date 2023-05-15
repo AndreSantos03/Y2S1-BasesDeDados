@@ -10,14 +10,8 @@ if ($_SESSION['csrf'] !== $_POST['csrf']) {
     error_log('CSRF token verification failed for user ' . $_POST['email']);
 } else {
     $db = getDatabaseConnection();
-
-    $stmt = $db->prepare('
-    INSERT INTO User (FirstName, LastName, Email,Password,Privilege) VALUES (?,?,?,?,"client");
-');
-    $options = ['cost' => 12];
-    $stmt->execute(array($_POST['firstName'], $_POST['lastName'], $_POST['email'], password_hash($_POST['password'], PASSWORD_DEFAULT, $options)));
-
-
+    $user = new User(null, $_POST['firstName'], $_POST['lastName'], null, null, null, $_POST['email'], 'client', null);
+    $user->save($db, $_POST['password']);
     header('Location: ../pages');
 }
 ?>
