@@ -12,14 +12,14 @@ $session = new Session();
 
 <head>
     <title>Helpline</title>
-    <link rel="stylesheet" href="/../css/styles.css">
+    <link rel="stylesheet" href="/../css/style2.css">
     <link rel="icon" type="image/x-icon" href="../assets/icon.ico">
 </head>
 
 <body>
-    <div class="header">
-        <?php drawHeader(); ?>
-        <div class="header_button">
+    <div class="sidebar">
+        <?php drawSideBar(); ?>
+        <div class="sidebar_button">
             <button>
                 <a href="../pages/main.php">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"

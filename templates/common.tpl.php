@@ -11,11 +11,11 @@
     </div>
 <?php } ?>
 
-<?php function drawHeader() { ?>
-    <div class="header_logo">
+<?php function drawSideBar() { ?>
+    <div class="sidebar_logo">
         <img src="../assets/logo.png" alt="logo">
     </div>
-    <div class="header_button">
+    <div class="sidebar_button">
         <button>
             <a href="createTicket.php">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -27,7 +27,7 @@
         </button>
         <p>Create Ticket</p>
     </div>
-    <div class="header_button">
+    <div class="sidebar_button">
         <button>
             <a href="settings.php">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -40,7 +40,7 @@
         </button>
         <p>Settings</p>
     </div>
-    <div class="header_button">
+    <div class="sidebar_button">
         <form method="POST" action="../actions/action_logout.php">
             <input type="hidden" name="csrf" value="<?= $_SESSION['csrf'] ?>">
             <button type="submit" name="logout">
