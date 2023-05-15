@@ -80,19 +80,90 @@ body {
 }
 
 .box_header {
-    padding-left: 2em;
-    padding-right: 2em;
+    margin-left: 2em;
+    margin-right: 2em;
     padding-top: 1em;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 0.5fr 2fr 1.3fr 0.7fr 0.7fr 1fr;
+    grid-column-gap: 28px;
 }
 
 #tickets {
     margin-top: 0em;
+    margin-bottom: 0em;
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 400;
     font-size: 22px;
     line-height: 28px;
     color: #49454F;
+}
+
+.search_box {
+    width: 100%;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    display: flex;
+    align-items: center;
+    background-color: #E7E0EC;
+    border-radius: 20px;
+}
+
+.search_box input {
+    border: none;
+    background-color: #E7E0EC;
+    width: 100%;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 20px;
+}
+
+.search_box input::placeholder {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 20px;
+}
+
+.search_box input:focus {
+    outline: none;
+}
+
+.search_box img {
+    width: 20px;
+    margin-right: 0.1em;
+    color: #6750A4;
+}
+
+.sort {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #E7E0EC;
+    border-radius: 20px;
+}
+
+.sort p {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 20px;
+    margin-top: 0em;
+    margin-bottom: 0em;
+    margin-right: 0.5em;
+    margin-left: 0.5em;
+}
+
+.sort svg {
+    width: 20px;
+    color: #6750A4;
+}
+
+.sort img {
+    width: 20px;
+    color: #6750A4;
 }
