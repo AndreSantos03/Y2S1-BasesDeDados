@@ -15,7 +15,7 @@ require_once(__DIR__ . '/../templates/common.tpl.php');
 <head>
     <title>Helpline</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <link rel="stylesheet" href="/../css/styles.css">
+    <link rel="stylesheet" href="/../css/style1.css">
     <link rel="icon" type="image/x-icon" href="../assets/icon.ico">
 </head>
 
@@ -63,4 +63,5 @@ require_once(__DIR__ . '/../templates/common.tpl.php');
             <a href="/pages/index.php">Login</a>
         </div>
     </div>
+    <script src="../javascript/eye.js" defer></script>
 </body>

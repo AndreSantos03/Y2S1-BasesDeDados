@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 class User
 {
-    public int $id;
+    public ?int $id;
     public string $firstName;
     public string $lastName;
     public ?string $city;
@@ -15,7 +15,7 @@ class User
 
 
     public function __construct(
-        int $id,
+        ?int $id,
         string $firstName,
         string $lastName,
         ?string $city,
@@ -41,14 +41,13 @@ class User
         return $this->firstName . ' ' . $this->lastName;
     }
 
-    function save($db)
+    function save($db, string $password)
     {
         $stmt = $db->prepare('
-        UPDATE User SET FirstName = ?, LastName = ?
-        WHERE UserId = ?
-      ');
-
-        $stmt->execute(array($this->firstName, $this->lastName, $this->id));
+        INSERT INTO User (FirstName, LastName, Email,Password,Privilege) VALUES (?,?,?,?,?);
+    ');
+        $options = ['cost' => 12];
+        $stmt->execute(array($this->firstName, $this->lastName, $this->email, password_hash($password, PASSWORD_DEFAULT, $options), $this->privilege));
     }
 
     static function getUserWithPassword(PDO $db, string $email, string $password): ?User

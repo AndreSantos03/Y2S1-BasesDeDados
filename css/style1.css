@@ -311,68 +311,6 @@ input[type="checkbox"]:checked#remember {
 }
 
 
-.header_button button {
-    border: none;
-    background-color: #EADDFF;
-    width: 89px;
-    height: 46px;
-    border-radius: 20px;
-}
-
-.header_button button:hover {
-    background-color: #6750A4;
-}
-
-.header_button button:hover a svg {
-    color: #FFFFFF;
-}
-
-.header_button button:hover svg {
-    color: #FFFFFF;
-}
-
-.header_button p {
-    text-align: center;
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 27px;
-    color: #49454F;
-    margin-bottom: 2em;
-}
-
-.header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: absolute;
-    background-color: #F4EFF4;
-    width: 130px;
-    height: 100%;
-}
-
-.header_button button a svg {
-    color: #49454F;
-    width: 30px;
-    margin-top: 0.2em;
-}
-
-.header_button button svg {
-    color: #49454F;
-    width: 30px;
-    margin-top: 0.2em;
-}
-
-.header_logo {
-    margin-top: 2em;
-    margin-bottom: 2em;
-}
-
-.header_logo img {
-    width: 110px;
-}
-
 /*
 Outro icon 
 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">

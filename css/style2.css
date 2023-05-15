@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    margin: 0;
+}
+
+.sidebar_button button {
+    border: none;
+    background-color: #EADDFF;
+    width: 89px;
+    height: 46px;
+    border-radius: 20px;
+}
+
+.sidebar_button button:hover {
+    background-color: #6750A4;
+}
+
+.sidebar_button button:hover a svg {
+    color: #FFFFFF;
+}
+
+.sidebar_button button:hover svg {
+    color: #FFFFFF;
+}
+
+.sidebar_button p {
+    text-align: center;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 27px;
+    color: #49454F;
+    margin-bottom: 2em;
+}
+
+.sidebar {
+    grid-column: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #F4EFF4;
+}
+
+.sidebar_button button a svg {
+    color: #49454F;
+    width: 30px;
+    margin-top: 0.2em;
+}
+
+.sidebar_button button svg {
+    color: #49454F;
+    width: 30px;
+    margin-top: 0.2em;
+}
+
+.sidebar_logo {
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+.sidebar_logo img {
+    width: 110px;
+}
+
+.main_box {
+    grid-column: 2;
+    background: #F4EFF4;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    margin: 5em 5em 5em 5em;
+}
+
+.box_header {
+    padding-left: 2em;
+    padding-right: 2em;
+    padding-top: 1em;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+#tickets {
+    margin-top: 0em;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 28px;
+    color: #49454F;
+}
