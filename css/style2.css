@@ -216,3 +216,72 @@ body {
 .filtersbtn:hover svg {
     color: #49454F;
 }
+
+.ticket {
+    display: grid;
+    grid-template-columns: 0.5fr 2fr 1fr;
+}
+
+.ticket_status {
+    width: 79px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5em 0.5em 0.5em 0.5em;
+    background-color: #6750A4;
+}
+
+.ticket_status p {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 16px;
+    line-height: 24px;
+    color: #FFFFFF;
+    margin-top: 0em;
+    margin-bottom: 0em;
+}
+
+
+.ticket_title {
+    display: flex;
+    align-items: left;
+    justify-content: left;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.ticket_desc {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+}
+
+.ticket_title svg {
+    width: 20px;
+    color: #6750A4;
+    padding-right: 0.5em;
+}
+
+.ticket_status_spacer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ticket_info {
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+}
