@@ -40,7 +40,7 @@
         </button>
         <p>Settings</p>
     </div>
-    <div class="sidebar_button">
+    <div class="sidebar_button" id="logout_button">
         <form method="POST" action="../actions/action_logout.php">
             <input type="hidden" name="csrf" value="<?= $_SESSION['csrf'] ?>">
             <button type="submit" name="logout">
