@@ -76,7 +76,7 @@ body {
     background: #F4EFF4;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
-    margin: 5em 5em 5em 5em;
+    margin: 2.5em 5em 2.5em 5em;
 }
 
 .box_header {
@@ -284,4 +284,49 @@ body {
     font-weight: 400;
     font-size: 12px;
     line-height: 16px;
+}
+
+.pagenumbers {
+    grid-column: 2;
+}
+
+.ticket_list {
+    width: 100%
+}
+
+.pagenumbers {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pagenumbers :first-child {
+    border-top-left-radius: 2px;
+    border-bottom-left-radius: 2px;
+}
+
+.pagenumbers :last-child {
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+}
+
+.pagenumbers button {
+    width: 41px;
+    height: 46px;
+
+    appearance: none;
+    border: 0.5px solid #DEE2E6;
+    outline: none;
+    cursor: pointer;
+
+    background-color: transparent;
+    transition: 0.4s;
+
+    color: #6750A4;
+    font-size: 16px;
+}
+
+.pagenumbers button.active {
+    background-color: #6750A4;
+    color: #FFFFFF;
 }
