@@ -66,7 +66,7 @@ if (!$session->isLoggedIn()) {
                     </svg>
                 </button>
             </div>
-            <button class="filtersbtn">
+            <button class="filtersbtn" id="filtersButton">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="currentColor" class="w-6 h-6">
                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -78,7 +78,17 @@ if (!$session->isLoggedIn()) {
         </div>
     </div>
     <div class="pagenumbers" id="pagination">
-
+    </div>
+    <div id="filters_menu" class="filters_menu">
+        <p>Tags</p>
+        <hr class="divider">
+        <button id="active">Active</button>
+        <button id="closed">Closed</button>
+        <hr class="divider">
+        <p>Sort by</p>
+        <hr class="divider">
+        <button id="most_recent">Most Recent</button>
+        <button id="oldest">Oldest</button>
     </div>
     <script src="../js/main.js"></script>
 </body>

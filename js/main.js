@@ -288,3 +288,22 @@ function PaginationButton(page, items) {
 
 DisplayList(items, list, rows, current_page);
 SetupPagination(items, pagination, rows);
+
+
+let filtersButton = document.getElementById("filtersButton");
+let dropdown = document.getElementById("filters_menu");
+
+// Oculta o dropdown inicialmente
+dropdown.style.display = "none";
+
+// Adiciona o evento de clique ao botão
+filtersButton.addEventListener("click", function () {
+    // Verifica o estado atual do dropdown
+    if (dropdown.style.display === "none") {
+        // Se estiver oculto, mostra o dropdown com "display: flex"
+        dropdown.style.display = "flex";
+    } else {
+        // Se estiver visível, oculta o dropdown
+        dropdown.style.display = "none";
+    }
+});
