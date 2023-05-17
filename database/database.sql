@@ -16,10 +16,11 @@ CREATE TABLE Ticket (
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "client_id" INTEGER NOT NULL,
     "status_id" INTEGER NOT NULL,
-    "last_message_id" INTEGER,
+    "title" TEXT NOT NULL,
+    "desc" TEXT NOT NULL,
+    "datetime" TIMESTAMP NOT NULL,
     FOREIGN KEY(client_id) REFERENCES User(UserId),
-    FOREIGN KEY(status_id) REFERENCES Status(id),
-    FOREIGN KEY(last_message_id) REFERENCES Message(id)
+    FOREIGN KEY(status_id) REFERENCES Status(id)
 );
 
 CREATE TABLE Message (
@@ -48,7 +49,6 @@ CREATE TABLE Status (
     "status" TEXT NOT NULL,
     "priority" TEXT NOT NULL,
     "datetime" TIMESTAMP NOT NULL,
-    FOREIGN KEY(ticket_id) REFERENCES Ticket(id),
     FOREIGN KEY(agent_id) REFERENCES User(UserId),
     FOREIGN KEY(admin_id) REFERENCES User(UserId)
 );

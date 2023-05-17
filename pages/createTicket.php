@@ -29,7 +29,7 @@ $session = new Session();
                     </svg>
                 </a>
             </button>
-            <p id="tickets">Return</p>
+            <p>Return</p>
         </div>
     </div>
 </body>
