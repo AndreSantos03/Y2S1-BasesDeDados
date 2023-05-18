@@ -1,14 +1,15 @@
 <?php
 class Status {
-    private int $id;
-    private int $ticketId;
-    private int $agentId;
-    private ?int $adminId;
-    private string $status;
-    private string $priority;
-    private string $datetime;
+    public ?int $id;
+    public int $ticketId;
+    public int $agentId;
+    public ?int $adminId;
+    public string $status;
+    public string $priority;
+    public string $datetime;
 
     public function __construct(
+        ?int $id,
         int $ticketId, 
         int $agentId, 
         ?int $adminId, 
@@ -16,6 +17,7 @@ class Status {
         string $priority, 
         string $datetime
         ) {
+        $this->id = $id;
         $this->ticketId = $ticketId;
         $this->agentId = $agentId;
         $this->adminId = $adminId;
@@ -26,18 +28,10 @@ class Status {
     function save($db) {
         $stmt = $db->prepare('
             INSERT INTO Status (ticket_id, agent_id, admin_id, status, priority, datetime)
-            VALUES (?, ?, ?, ?, ?, ?)
+            VALUES (?, ?, ?, ?, ?, ?);
         ');
         
         $stmt->execute(array($this->ticketId, $this->agentId, $this->adminId, $this->status, $this->priority, $this->datetime));
-    }
-    static function getStatusByTicketId($db, $ticketId) {
-        $stmt = $db->prepare('
-            SELECT * FROM Status WHERE ticket_id = ? ORDER BY datetime DESC LIMIT 1
-        ');
-        $stmt->execute(array($ticketId));
-        $status = $stmt->fetch(PDO::FETCH_ASSOC);
-        return $status;
-    }    
+    } 
 }
 ?>
