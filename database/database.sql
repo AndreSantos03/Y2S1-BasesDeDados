@@ -15,12 +15,10 @@ CREATE TABLE User (
 CREATE TABLE Ticket (
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "client_id" INTEGER NOT NULL,
-    "status_id" INTEGER NOT NULL,
     "title" TEXT NOT NULL,
     "desc" TEXT NOT NULL,
     "datetime" TIMESTAMP NOT NULL,
-    FOREIGN KEY(client_id) REFERENCES User(UserId),
-    FOREIGN KEY(status_id) REFERENCES Status(id)
+    FOREIGN KEY(client_id) REFERENCES User(UserId)
 );
 
 CREATE TABLE Message (
