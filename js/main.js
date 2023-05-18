@@ -231,7 +231,10 @@ const items = [
 </div>",
 ];
 
-
+async function GetTickets() {
+    const response = await fetch('../api/ticket.api.php');
+    return await response.json();
+}
 const list = document.getElementById("ticket_list");
 const pagination = document.getElementById("pagination");
 
