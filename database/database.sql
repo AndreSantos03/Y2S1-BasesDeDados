@@ -18,6 +18,12 @@ CREATE TABLE Ticket (
     "title" TEXT NOT NULL,
     "desc" TEXT NOT NULL,
     "datetime" TIMESTAMP NOT NULL,
+    "agent_id" INTEGER NOT NULL,
+    "admin_id" INTEGER,
+    "status" TEXT NOT NULL,
+    "priority" TEXT NOT NULL,
+    FOREIGN KEY(agent_id) REFERENCES User(UserId),
+    FOREIGN KEY(admin_id) REFERENCES User(UserId),
     FOREIGN KEY(client_id) REFERENCES User(UserId)
 );
 
@@ -37,16 +43,4 @@ CREATE TABLE Attachment (
     "filename" TEXT NOT NULL,
     "file" BLOB NOT NULL,
     FOREIGN KEY(message_id) REFERENCES Message(id)
-);
-
-CREATE TABLE Status (
-    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
-    "ticket_id" INTEGER NOT NULL,
-    "agent_id" INTEGER NOT NULL,
-    "admin_id" INTEGER,
-    "status" TEXT NOT NULL,
-    "priority" TEXT NOT NULL,
-    "datetime" TIMESTAMP NOT NULL,
-    FOREIGN KEY(agent_id) REFERENCES User(UserId),
-    FOREIGN KEY(admin_id) REFERENCES User(UserId)
 );

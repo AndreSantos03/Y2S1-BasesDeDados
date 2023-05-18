@@ -5,52 +5,52 @@ class Ticket {
     public string $title;
     public string $desc;
     public string $datetime;
+    public int $agentId;
+    public ?int $adminId;
+    public string $status;
+    public string $priority;
 
-    public function __construct(?int $id,int $clientId, string $title, string $desc, string $datetime) {
+    public function __construct(?int $id, int $clientId, string $title, string $desc, string $datetime, int $agentId, ?int $adminId, string $status, string $priority) {
         $this->id = $id;
         $this->clientId = $clientId;
         $this->title = $title;
         $this->desc = $desc;
         $this->datetime = $datetime;
+        $this->agentId = $agentId;
+        $this->adminId = $adminId;
+        $this->status = $status;
+        $this->priority = $priority;
     }
-    function save($db) {
-        $stmt = $db->prepare('
-            INSERT INTO Ticket (client_id, title, desc, datetime)
-            VALUES (?, ?, ?, ?);
-        ');
-    
-        $stmt->execute(array($this->clientId, $this->title, $this->desc, $this->datetime));
-    }
-    static function getTicketById($db, $ticketId) {
-        $stmt = $db->prepare('
-            SELECT * FROM Ticket WHERE ticket_id = ?
-        ');
-        $stmt->execute(array($ticketId));
-        $ticket = $stmt->fetch();
 
-        return new Ticket(
-            $ticket['id'],
-            $ticket['client_id'],
-            $ticket['title'],
-            $ticket['desc'],
-            $ticket['datetime']
-        );        
-    }    
-    function getStatus($db) {
+    public function save($db) {
         $stmt = $db->prepare('
-            SELECT * FROM Status WHERE ticket_id = ? ORDER BY datetime DESC LIMIT 1;
+            INSERT INTO Ticket (client_id, title, `desc`, `datetime`, agent_id, admin_id, status, priority)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?);
         ');
-        $stmt->execute(array($this->id));
-        $status = $stmt->fetch();
-        return new Status(
-            $status['id'],
-            $status['ticket_id'],
-            $status['agent_id'],
-            $status['admin_id'],
-            $status['status'],
-            $status['priority'],
-            $status['datetime']
-        );
+        $stmt->execute(array($this->clientId, $this->title, $this->desc, $this->datetime, $this->agentId, $this->adminId, $this->status, $this->priority));
     }  
+
+    static function getClientTickets($db, $clientId) {
+        $stmt = $db->prepare('
+            SELECT * FROM Ticket WHERE client_id = ? ORDER BY `datetime` DESC;
+        ');
+        $stmt->execute(array($clientId));
+        $tickets = $stmt->fetchAll();
+        $ticketsArray = array();
+        foreach ($tickets as $ticket) {
+            array_push($ticketsArray, new Ticket(
+                $ticket['id'],
+                $ticket['client_id'],
+                $ticket['title'],
+                $ticket['desc'],
+                $ticket['datetime'],
+                $ticket['agent_id'],
+                $ticket['admin_id'],
+                $ticket['status'],
+                $ticket['priority']
+            ));
+        }
+        return $ticketsArray;
+    }
 }
 ?>
