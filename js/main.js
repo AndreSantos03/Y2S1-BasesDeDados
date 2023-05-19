@@ -346,7 +346,7 @@ function drawTicket(ticket) {
     ticketInfo.classList.add("ticket_info");
 
     const ticketInfoText = document.createElement("p");
-    ticketInfoText.textContent = "Asked by " + ticket.client_id + ticket.datetime;
+    ticketInfoText.textContent = ticket.datetime;
 
     ticketInfo.appendChild(ticketInfoText);
     ticketElement.appendChild(ticketInfo);
