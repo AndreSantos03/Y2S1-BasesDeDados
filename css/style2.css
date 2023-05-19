@@ -231,8 +231,8 @@ body {
     margin-right: 2em;
     padding-top: 1em;
     display: grid;
-    grid-template-columns: 2fr 26fr;
-    grid-column-gap: 2px;
+    grid-template-columns: 2fr 0fr 26fr;
+    grid-column-gap: 4px;
 }
 
 .settings_title p{
@@ -247,7 +247,7 @@ body {
     margin-left: 0em;
 }
 
-.profile_box {
+.profile_box{
     margin: 1em 2em;
 }
 
@@ -256,4 +256,24 @@ body {
     font-style: normal;
     font-weight: 450;
     font-size: 20px;
+}
+
+.op_box{
+    background: #dfcbf0;
+    border-radius: 10px;
+    margin: 1em 2em 1em 2em;
+    display: grid;
+    grid-template-rows: 0.5fr 0.5fr;
+    grid-row-gap: 5px;
+    text-align: center;
+}
+
+.op_box p{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+
 }
