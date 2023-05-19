@@ -277,3 +277,19 @@ body {
     margin-bottom: 0.5em;
 
 }
+
+#login_btnSubmit {
+    background-color: #6750A4;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    border-radius: 5px;
+    width: 20em;
+}

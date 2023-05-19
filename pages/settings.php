@@ -50,33 +50,37 @@ $session = new Session();
                     <p id="settings_op">Profile</p>
                 </div>
             </div> 
-            <div class="op_box">
-                <p>ID</p>
-            </div>
-            <div class="op_box">
-                <p>First Name</p>
-            </div>
-            <div class="op_box">
-                <p>Last Name</p>
-            </div>
-            <div class="op_box">
-                <p>Country</p>
-            </div>
-            <div class="op_box">
-                <p>City</p>
-            </div>
-            <div class="op_box">
-                <p>Phone</p>
-            </div>
-            <div class="op_box">
-                <p>Email</p>
-            </div>
-            <div class="op_box">
-                <p>Privilege</p>
-            </div>
-            <div class="op_box">
-                <p>Department</p>
-            </div>
+            <form action="../actions/action_updateInfo.php" method="POST">
+                <input type="hidden" name="csrf" value="<?= $_SESSION['csrf'] ?>">
+                
+                <div class="op_box">
+                    <p>First Name</p>
+                </div>
+                <div class="op_box">
+                    <p>Last Name</p>
+                </div>
+                <div class="op_box">
+                    <p>Country</p>
+                    <input type="text" id="country" name="country">
+                </div>
+                <div class="op_box">
+                    <p>City</p>
+                    <input type="text" id="city" name="city">
+                </div>
+                <div class="op_box">
+                    <p>Phone</p>
+                    <input type="text" id="phone" name="phone">
+                </div>
+                <div class="op_box">
+                    <p>Email</p>
+                </div>
+                <div class="op_box">
+                    <p>Department</p>
+                </div>
+                <div class="btnSubmit">
+                    <button type="submit" id="login_btnSubmit">SAVE</button>
+                </div>
+            </form>
         </div>
     </div>
 </body>
