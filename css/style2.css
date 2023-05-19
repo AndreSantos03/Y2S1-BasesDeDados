@@ -354,7 +354,7 @@ body {
     padding: 8px;
 
     width: 200px;
-    height: 347px;
+    height: 320px;
 
     background: #F4EFF4;
     box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 2px 6px 2px rgba(0, 0, 0, 0.15);
@@ -378,11 +378,11 @@ body {
 .filters_menu button {
     padding-top: 0.9em;
     padding-bottom: 0.9em;
+    margin-bottom: 0.5em;
     display: flex;
     align-items: left;
     width: 100%;
     border: none;
-    background-color: transparent;
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 400;
@@ -395,4 +395,13 @@ body {
 .filters_menu button:hover {
     background-color: #6750A4;
     color: #FFFFFF;
+}
+
+.filters_button_active {
+    background-color: #6750A4;
+    color: #FFFFFF;
+}
+
+.filters_button_inactive {
+    background-color: transparent;
 }

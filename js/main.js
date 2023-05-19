@@ -1,244 +1,13 @@
-const items = [
-    "            <div class=\"ticket\">\
-    <div class=\"ticket_status_spacer\">\
-        <div class=\"ticket_status\">\
-            <p>Closed</p>\
-        </div>\
-    </div>\
-    <div class=\"ticket_content\">\
-        <div class=\"ticket_title\">\
-            <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 20 20\" fill=\"currentColor\" class=\"w-5 h-5\">\
-                <path fill-rule=\"evenodd\"\
-                    d=\"M18 10a8 8 0 11-16 0 8 8 0 0116 0zM8.94 6.94a.75.75 0 11-1.061-1.061 3 3 0 112.871 5.026v.345a.75.75 0 01-1.5 0v-.5c0-.72.57-1.172 1.081-1.287A1.5 1.5 0 108.94 6.94zM10 15a1 1 0 100-2 1 1 0 000 2z\"\
-                    clip-rule=\"evenodd\" />\
-            </svg>\
-            <p>What’s the difference between String and string in C#?</p>\
-        </div>\
-        <div class=\"ticket_desc\">\
-            <p>string s = \"Hello world!\"; String s = \"Hello world!\"; …</p>\
-        </div>\
-    </div>\
-    <div class=\"ticket_info\">\
-        <p>Asked by Lance Fisher 12 jan 12:52</p>\
-    </div>\
-</div>",
-    "            <div class=\"ticket\">\
-<div class=\"ticket_status_spacer\">\
-    <div class=\"ticket_status\">\
-        <p>Closed</p>\
-    </div>\
-</div>\
-<div class=\"ticket_content\">\
-    <div class=\"ticket_title\">\
-        <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 20 20\" fill=\"currentColor\" class=\"w-5 h-5\">\
-            <path fill-rule=\"evenodd\"\
-                d=\"M18 10a8 8 0 11-16 0 8 8 0 0116 0zM8.94 6.94a.75.75 0 11-1.061-1.061 3 3 0 112.871 5.026v.345a.75.75 0 01-1.5 0v-.5c0-.72.57-1.172 1.081-1.287A1.5 1.5 0 108.94 6.94zM10 15a1 1 0 100-2 1 1 0 000 2z\"\
-                clip-rule=\"evenodd\" />\
-        </svg>\
-        <p>What’s the difference between String and string in C#?</p>\
-    </div>\
-    <div class=\"ticket_desc\">\
-        <p>string s = \"Hello world!\"; String s = \"Hello world!\"; …</p>\
-    </div>\
-</div>\
-<div class=\"ticket_info\">\
-    <p>Asked by Lance Fisher 12 jan 12:52</p>\
-</div>\
-</div>",
-    "            <div class=\"ticket\">\
-<div class=\"ticket_status_spacer\">\
-    <div class=\"ticket_status\">\
-        <p>Closed</p>\
-    </div>\
-</div>\
-<div class=\"ticket_content\">\
-    <div class=\"ticket_title\">\
-        <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 20 20\" fill=\"currentColor\" class=\"w-5 h-5\">\
-            <path fill-rule=\"evenodd\"\
-                d=\"M18 10a8 8 0 11-16 0 8 8 0 0116 0zM8.94 6.94a.75.75 0 11-1.061-1.061 3 3 0 112.871 5.026v.345a.75.75 0 01-1.5 0v-.5c0-.72.57-1.172 1.081-1.287A1.5 1.5 0 108.94 6.94zM10 15a1 1 0 100-2 1 1 0 000 2z\"\
-                clip-rule=\"evenodd\" />\
-        </svg>\
-        <p>What’s the difference between String and string in C#?</p>\
-    </div>\
-    <div class=\"ticket_desc\">\
-        <p>string s = \"Hello world!\"; String s = \"Hello world!\"; …</p>\
-    </div>\
-</div>\
-<div class=\"ticket_info\">\
-    <p>Asked by Lance Fisher 12 jan 12:52</p>\
-</div>\
-</div>",
-    "            <div class=\"ticket\">\
-<div class=\"ticket_status_spacer\">\
-    <div class=\"ticket_status\">\
-        <p>Closed</p>\
-    </div>\
-</div>\
-<div class=\"ticket_content\">\
-    <div class=\"ticket_title\">\
-        <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 20 20\" fill=\"currentColor\" class=\"w-5 h-5\">\
-            <path fill-rule=\"evenodd\"\
-                d=\"M18 10a8 8 0 11-16 0 8 8 0 0116 0zM8.94 6.94a.75.75 0 11-1.061-1.061 3 3 0 112.871 5.026v.345a.75.75 0 01-1.5 0v-.5c0-.72.57-1.172 1.081-1.287A1.5 1.5 0 108.94 6.94zM10 15a1 1 0 100-2 1 1 0 000 2z\"\
-                clip-rule=\"evenodd\" />\
-        </svg>\
-        <p>What’s the difference between String and string in C#?</p>\
-    </div>\
-    <div class=\"ticket_desc\">\
-        <p>string s = \"Hello world!\"; String s = \"Hello world!\"; …</p>\
-    </div>\
-</div>\
-<div class=\"ticket_info\">\
-    <p>Asked by Lance Fisher 12 jan 12:52</p>\
-</div>\
-</div>",
-    "            <div class=\"ticket\">\
-<div class=\"ticket_status_spacer\">\
-    <div class=\"ticket_status\">\
-        <p>Closed</p>\
-    </div>\
-</div>\
-<div class=\"ticket_content\">\
-    <div class=\"ticket_title\">\
-        <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 20 20\" fill=\"currentColor\" class=\"w-5 h-5\">\
-            <path fill-rule=\"evenodd\"\
-                d=\"M18 10a8 8 0 11-16 0 8 8 0 0116 0zM8.94 6.94a.75.75 0 11-1.061-1.061 3 3 0 112.871 5.026v.345a.75.75 0 01-1.5 0v-.5c0-.72.57-1.172 1.081-1.287A1.5 1.5 0 108.94 6.94zM10 15a1 1 0 100-2 1 1 0 000 2z\"\
-                clip-rule=\"evenodd\" />\
-        </svg>\
-        <p>What’s the difference between String and string in C#?</p>\
-    </div>\
-    <div class=\"ticket_desc\">\
-        <p>string s = \"Hello world!\"; String s = \"Hello world!\"; …</p>\
-    </div>\
-</div>\
-<div class=\"ticket_info\">\
-    <p>Asked by Lance Fisher 12 jan 12:52</p>\
-</div>\
-</div>",
-    "            <div class=\"ticket\">\
-<div class=\"ticket_status_spacer\">\
-    <div class=\"ticket_status\">\
-        <p>Closed</p>\
-    </div>\
-</div>\
-<div class=\"ticket_content\">\
-    <div class=\"ticket_title\">\
-        <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 20 20\" fill=\"currentColor\" class=\"w-5 h-5\">\
-            <path fill-rule=\"evenodd\"\
-                d=\"M18 10a8 8 0 11-16 0 8 8 0 0116 0zM8.94 6.94a.75.75 0 11-1.061-1.061 3 3 0 112.871 5.026v.345a.75.75 0 01-1.5 0v-.5c0-.72.57-1.172 1.081-1.287A1.5 1.5 0 108.94 6.94zM10 15a1 1 0 100-2 1 1 0 000 2z\"\
-                clip-rule=\"evenodd\" />\
-        </svg>\
-        <p>What’s the difference between String and string in C#?</p>\
-    </div>\
-    <div class=\"ticket_desc\">\
-        <p>string s = \"Hello world!\"; String s = \"Hello world!\"; …</p>\
-    </div>\
-</div>\
-<div class=\"ticket_info\">\
-    <p>Asked by Lance Fisher 12 jan 12:52</p>\
-</div>\
-</div>",
-    "            <div class=\"ticket\">\
-<div class=\"ticket_status_spacer\">\
-    <div class=\"ticket_status\">\
-        <p>Closed</p>\
-    </div>\
-</div>\
-<div class=\"ticket_content\">\
-    <div class=\"ticket_title\">\
-        <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 20 20\" fill=\"currentColor\" class=\"w-5 h-5\">\
-            <path fill-rule=\"evenodd\"\
-                d=\"M18 10a8 8 0 11-16 0 8 8 0 0116 0zM8.94 6.94a.75.75 0 11-1.061-1.061 3 3 0 112.871 5.026v.345a.75.75 0 01-1.5 0v-.5c0-.72.57-1.172 1.081-1.287A1.5 1.5 0 108.94 6.94zM10 15a1 1 0 100-2 1 1 0 000 2z\"\
-                clip-rule=\"evenodd\" />\
-        </svg>\
-        <p>What’s the difference between String and string in C#?</p>\
-    </div>\
-    <div class=\"ticket_desc\">\
-        <p>string s = \"Hello world!\"; String s = \"Hello world!\"; …</p>\
-    </div>\
-</div>\
-<div class=\"ticket_info\">\
-    <p>Asked by Lance Fisher 12 jan 12:52</p>\
-</div>\
-</div>",
-    "            <div class=\"ticket\">\
-<div class=\"ticket_status_spacer\">\
-    <div class=\"ticket_status\">\
-        <p>Closed</p>\
-    </div>\
-</div>\
-<div class=\"ticket_content\">\
-    <div class=\"ticket_title\">\
-        <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 20 20\" fill=\"currentColor\" class=\"w-5 h-5\">\
-            <path fill-rule=\"evenodd\"\
-                d=\"M18 10a8 8 0 11-16 0 8 8 0 0116 0zM8.94 6.94a.75.75 0 11-1.061-1.061 3 3 0 112.871 5.026v.345a.75.75 0 01-1.5 0v-.5c0-.72.57-1.172 1.081-1.287A1.5 1.5 0 108.94 6.94zM10 15a1 1 0 100-2 1 1 0 000 2z\"\
-                clip-rule=\"evenodd\" />\
-        </svg>\
-        <p>What’s the difference between String and string in C#?</p>\
-    </div>\
-    <div class=\"ticket_desc\">\
-        <p>string s = \"Hello world!\"; String s = \"Hello world!\"; …</p>\
-    </div>\
-</div>\
-<div class=\"ticket_info\">\
-    <p>Asked by Lance Fisher 12 jan 12:52</p>\
-</div>\
-</div>",
-    "            <div class=\"ticket\">\
-<div class=\"ticket_status_spacer\">\
-    <div class=\"ticket_status\">\
-        <p>Closed</p>\
-    </div>\
-</div>\
-<div class=\"ticket_content\">\
-    <div class=\"ticket_title\">\
-        <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 20 20\" fill=\"currentColor\" class=\"w-5 h-5\">\
-            <path fill-rule=\"evenodd\"\
-                d=\"M18 10a8 8 0 11-16 0 8 8 0 0116 0zM8.94 6.94a.75.75 0 11-1.061-1.061 3 3 0 112.871 5.026v.345a.75.75 0 01-1.5 0v-.5c0-.72.57-1.172 1.081-1.287A1.5 1.5 0 108.94 6.94zM10 15a1 1 0 100-2 1 1 0 000 2z\"\
-                clip-rule=\"evenodd\" />\
-        </svg>\
-        <p>What’s the difference between String and string in C#?</p>\
-    </div>\
-    <div class=\"ticket_desc\">\
-        <p>string s = \"Hello world!\"; String s = \"Hello world!\"; …</p>\
-    </div>\
-</div>\
-<div class=\"ticket_info\">\
-    <p>Asked by Lance Fisher 12 jan 12:52</p>\
-</div>\
-</div>",
-    "            <div class=\"ticket\">\
-<div class=\"ticket_status_spacer\">\
-    <div class=\"ticket_status\">\
-        <p>Active</p>\
-    </div>\
-</div>\
-<div class=\"ticket_content\">\
-    <div class=\"ticket_title\">\
-        <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 20 20\" fill=\"currentColor\" class=\"w-5 h-5\">\
-            <path fill-rule=\"evenodd\"\
-                d=\"M18 10a8 8 0 11-16 0 8 8 0 0116 0zM8.94 6.94a.75.75 0 11-1.061-1.061 3 3 0 112.871 5.026v.345a.75.75 0 01-1.5 0v-.5c0-.72.57-1.172 1.081-1.287A1.5 1.5 0 108.94 6.94zM10 15a1 1 0 100-2 1 1 0 000 2z\"\
-                clip-rule=\"evenodd\" />\
-        </svg>\
-        <p>What’s the difference between String and string in C#?</p>\
-    </div>\
-    <div class=\"ticket_desc\">\
-        <p>string s = \"Hello world!\"; String s = \"Hello world!\"; …</p>\
-    </div>\
-</div>\
-<div class=\"ticket_info\">\
-    <p>Asked by Lance Fisher 12 jan 12:52</p>\
-</div>\
-</div>",
-];
-
-
-
 const list = document.getElementById("ticket_list");
 const pagination = document.getElementById("pagination");
 
 let current_page = 1;
 
 let rows = 5;
+
+let filtersButton = document.getElementById("filtersButton");
+let dropdown = document.getElementById("filters_menu");
+dropdown.style.display = "none";
 
 function DisplayList(items, wrapper, rows_per_page, page) {
     wrapper.innerHTML = "";
@@ -369,12 +138,6 @@ async function drawTickets() {
 
 drawTickets();
 
-let filtersButton = document.getElementById("filtersButton");
-let dropdown = document.getElementById("filters_menu");
-
-// Oculta o dropdown inicialmente
-dropdown.style.display = "none";
-
 // Adiciona o evento de clique ao botão
 filtersButton.addEventListener("click", function () {
     // Verifica o estado atual do dropdown
@@ -385,4 +148,73 @@ filtersButton.addEventListener("click", function () {
         // Se estiver visível, oculta o dropdown
         dropdown.style.display = "none";
     }
+});
+
+let active_remove = document.getElementById("active_remove");
+let closed_remove = document.getElementById("closed_remove");
+let active = document.getElementById("active");
+let closed = document.getElementById("closed");
+let activeBtn = document.getElementById("activeBtn");
+let closedBtn = document.getElementById("closedBtn");
+let recentBtn = document.getElementById("recentBtn");
+let oldestBtn = document.getElementById("oldestBtn");
+let recent = document.getElementById("recent");
+let oldest = document.getElementById("oldest");
+active_remove.addEventListener("click", function () {
+    active.style.visibility = "hidden";
+    activeBtn.classList.remove("filters_button_active");
+    activeBtn.classList.add("filters_button_inactive");
+});
+
+closed_remove.addEventListener("click", function () {
+    closed.style.visibility = "hidden";
+    closedBtn.classList.remove("filters_button_active");
+    closedBtn.classList.add("filters_button_inactive");
+});
+
+
+activeBtn.addEventListener("click", function () {
+    if (active.style.visibility === "hidden") {
+        active.style.visibility = "visible";
+        activeBtn.classList.remove("filters_button_inactive");
+        activeBtn.classList.add("filters_button_active");
+    } else {
+        active.style.visibility = "hidden";
+        activeBtn.classList.remove("filters_button_active");
+        activeBtn.classList.add("filters_button_inactive");
+    }
+});
+
+closedBtn.addEventListener("click", function () {
+    if (closed.style.visibility === "hidden") {
+        closed.style.visibility = "visible";
+        closedBtn.classList.remove("filters_button_inactive");
+        closedBtn.classList.add("filters_button_active");
+    } else {
+        closed.style.visibility = "hidden";
+        closedBtn.classList.remove("filters_button_active");
+        closedBtn.classList.add("filters_button_inactive");
+    }
+});
+
+recentBtn.addEventListener("click", function () {
+    oldest.style.display = "none";
+    recent.style.display = "flex";
+    recentBtn.style.display = "none";
+    recentBtn.classList.remove("filters_button_active");
+    recentBtn.classList.add("filters_button_inactive");
+    oldestBtn.classList.remove("filters_button_inactive");
+    oldestBtn.classList.add("filters_button_active");
+    oldestBtn.style.display = "flex";
+});
+
+oldestBtn.addEventListener("click", function () {
+    recent.style.display = "none";
+    oldest.style.display = "flex";
+    oldestBtn.style.display = "none";
+    oldestBtn.classList.remove("filters_button_active");
+    oldestBtn.classList.add("filters_button_inactive");
+    recentBtn.classList.remove("filters_button_inactive");
+    recentBtn.classList.add("filters_button_active");
+    recentBtn.style.display = "flex";
 });
