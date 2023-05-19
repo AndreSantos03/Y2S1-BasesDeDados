@@ -8,7 +8,9 @@
   require_once(__DIR__ . '/../database/ticket.class.php');
 
   $db = getDatabaseConnection();
-
-  $tickets = Ticket::getClientTickets($db, $session->getId());
+  $active = $_GET['active'];
+  $closed = $_GET['closed'];
+  $recent = $_GET['recent'];
+  $tickets = Ticket::getClientTickets($db, $session->getId(),$active,$closed,$recent);
   echo json_encode($tickets);
 ?>

@@ -1,5 +1,15 @@
 const list = document.getElementById("ticket_list");
 const pagination = document.getElementById("pagination");
+let active_remove = document.getElementById("active_remove");
+let closed_remove = document.getElementById("closed_remove");
+let active = document.getElementById("active");
+let closed = document.getElementById("closed");
+let activeBtn = document.getElementById("activeBtn");
+let closedBtn = document.getElementById("closedBtn");
+let recentBtn = document.getElementById("recentBtn");
+let oldestBtn = document.getElementById("oldestBtn");
+let recent = document.getElementById("recent");
+let oldest = document.getElementById("oldest");
 
 let current_page = 1;
 
@@ -53,7 +63,13 @@ function PaginationButton(page, items) {
 }
 
 async function GetTickets() {
-    const response = await fetch('../api/ticket.api.php');
+
+    const active = !activeBtn.classList.contains("filters_button_active");
+    const closed = !closedBtn.classList.contains("filters_button_active");
+    const recent = !recentBtn.classList.contains("filters_button_active");
+
+    const url = `../api/ticket.api.php?active=${active}&closed=${closed}&recent=${recent}`;
+    const response = await fetch(url);
     return await response.json();
 }
 
@@ -150,26 +166,18 @@ filtersButton.addEventListener("click", function () {
     }
 });
 
-let active_remove = document.getElementById("active_remove");
-let closed_remove = document.getElementById("closed_remove");
-let active = document.getElementById("active");
-let closed = document.getElementById("closed");
-let activeBtn = document.getElementById("activeBtn");
-let closedBtn = document.getElementById("closedBtn");
-let recentBtn = document.getElementById("recentBtn");
-let oldestBtn = document.getElementById("oldestBtn");
-let recent = document.getElementById("recent");
-let oldest = document.getElementById("oldest");
 active_remove.addEventListener("click", function () {
     active.style.visibility = "hidden";
     activeBtn.classList.remove("filters_button_active");
     activeBtn.classList.add("filters_button_inactive");
+    drawTickets();
 });
 
 closed_remove.addEventListener("click", function () {
     closed.style.visibility = "hidden";
     closedBtn.classList.remove("filters_button_active");
     closedBtn.classList.add("filters_button_inactive");
+    drawTickets();
 });
 
 
@@ -178,10 +186,12 @@ activeBtn.addEventListener("click", function () {
         active.style.visibility = "visible";
         activeBtn.classList.remove("filters_button_inactive");
         activeBtn.classList.add("filters_button_active");
+        drawTickets();
     } else {
         active.style.visibility = "hidden";
         activeBtn.classList.remove("filters_button_active");
         activeBtn.classList.add("filters_button_inactive");
+        drawTickets();
     }
 });
 
@@ -190,10 +200,12 @@ closedBtn.addEventListener("click", function () {
         closed.style.visibility = "visible";
         closedBtn.classList.remove("filters_button_inactive");
         closedBtn.classList.add("filters_button_active");
+        drawTickets();
     } else {
         closed.style.visibility = "hidden";
         closedBtn.classList.remove("filters_button_active");
         closedBtn.classList.add("filters_button_inactive");
+        drawTickets();
     }
 });
 
@@ -206,6 +218,7 @@ recentBtn.addEventListener("click", function () {
     oldestBtn.classList.remove("filters_button_inactive");
     oldestBtn.classList.add("filters_button_active");
     oldestBtn.style.display = "flex";
+    drawTickets();
 });
 
 oldestBtn.addEventListener("click", function () {
@@ -217,4 +230,5 @@ oldestBtn.addEventListener("click", function () {
     recentBtn.classList.remove("filters_button_inactive");
     recentBtn.classList.add("filters_button_active");
     recentBtn.style.display = "flex";
+    drawTickets();
 });
