@@ -30,7 +30,7 @@ class Ticket {
         $stmt->execute(array($this->client_id, $this->title, $this->desc, $this->datetime, $this->agent_id, $this->admin_id, $this->status, $this->priority));
     }  
 
-    static function getClientTickets($db, $clientId) {
+    static function getClientTicketss($db, $clientId) {
         $stmt = $db->prepare('
             SELECT * FROM Ticket WHERE client_id = ? ORDER BY `datetime` DESC;
         ');
@@ -52,5 +52,49 @@ class Ticket {
         }
         return $ticketsArray;
     }
+    static function getClientTickets($db,$clientId,$search,$closed, $active, $recent) {
+        $query = 'SELECT * FROM Ticket WHERE client_id = ?';
+        $params = array($clientId);
+
+        if ($search!="") {
+            $query = $query . ' AND (title LIKE ? OR `desc` LIKE ?)';
+            array_push($params, '%'.$search.'%');
+            array_push($params, '%'.$search.'%');
+        }
+
+        if ($closed=="true" and $active=="false") {
+            $query = $query . ' AND status = "Closed"';
+        } else if ($closed=="false" and $active=="true") {
+            $query = $query . ' AND status = "Active"';
+        }
+
+        if($recent=="true") {
+            $query = $query . ' ORDER BY `datetime` DESC';
+        } else {
+            $query = $query . ' ORDER BY `datetime` ASC';
+        }
+    
+        $stmt = $db->prepare($query);
+        $stmt->execute($params);
+        $tickets = $stmt->fetchAll();
+        $ticketsArray = array();
+    
+        foreach ($tickets as $ticket) {
+            array_push($ticketsArray, new Ticket(
+                $ticket['id'],
+                $ticket['client_id'],
+                $ticket['title'],
+                $ticket['desc'],
+                $ticket['datetime'],
+                $ticket['agent_id'],
+                $ticket['admin_id'],
+                $ticket['status'],
+                $ticket['priority']
+            ));
+        }
+    
+        return $ticketsArray;
+    }
+    
 }
 ?>
