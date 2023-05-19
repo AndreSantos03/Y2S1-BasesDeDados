@@ -30,7 +30,7 @@ if (!$session->isLoggedIn()) {
             </div>
             <div class="search_box">
                 <img src="../assets/search.png" alt="search">
-                <input type="text" class="input" placeholder="Search...">
+                <input type="text" class="input" id="main_searchInput" placeholder="Search...">
             </div>
             <div class="sort" id="recent">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">

@@ -1,3 +1,5 @@
+let dropdown = document.getElementById("filters_menu");
+dropdown.style.display = "none";
 const list = document.getElementById("ticket_list");
 const pagination = document.getElementById("pagination");
 let active_remove = document.getElementById("active_remove");
@@ -10,14 +12,12 @@ let recentBtn = document.getElementById("recentBtn");
 let oldestBtn = document.getElementById("oldestBtn");
 let recent = document.getElementById("recent");
 let oldest = document.getElementById("oldest");
-
+let search = document.getElementById("main_searchInput");
 let current_page = 1;
 
 let rows = 5;
 
 let filtersButton = document.getElementById("filtersButton");
-let dropdown = document.getElementById("filters_menu");
-dropdown.style.display = "none";
 
 function DisplayList(items, wrapper, rows_per_page, page) {
     wrapper.innerHTML = "";
@@ -62,13 +62,16 @@ function PaginationButton(page, items) {
     return button;
 }
 
-async function GetTickets() {
-
+async function GetTickets(search) {
+    if (!search) {
+        search = "";
+    }
+    const encodedSearch = encodeURIComponent(search);
     const active = !activeBtn.classList.contains("filters_button_active");
     const closed = !closedBtn.classList.contains("filters_button_active");
     const recent = !recentBtn.classList.contains("filters_button_active");
 
-    const url = `../api/ticket.api.php?active=${active}&closed=${closed}&recent=${recent}`;
+    const url = `../api/ticket.api.php?search=${encodedSearch}&active=${active}&closed=${closed}&recent=${recent}`;
     const response = await fetch(url);
     return await response.json();
 }
@@ -138,8 +141,8 @@ function drawTicket(ticket) {
 
     return ticketElement;
 }
-async function drawTickets() {
-    const tickets = await GetTickets();
+async function drawTickets(search) {
+    const tickets = await GetTickets(search);
     let items = [];
 
     for (let i = 0; i < tickets.length; i++) {
@@ -170,14 +173,14 @@ active_remove.addEventListener("click", function () {
     active.style.visibility = "hidden";
     activeBtn.classList.remove("filters_button_active");
     activeBtn.classList.add("filters_button_inactive");
-    drawTickets();
+    drawTickets(search.value);
 });
 
 closed_remove.addEventListener("click", function () {
     closed.style.visibility = "hidden";
     closedBtn.classList.remove("filters_button_active");
     closedBtn.classList.add("filters_button_inactive");
-    drawTickets();
+    drawTickets(search.value);
 });
 
 
@@ -186,12 +189,12 @@ activeBtn.addEventListener("click", function () {
         active.style.visibility = "visible";
         activeBtn.classList.remove("filters_button_inactive");
         activeBtn.classList.add("filters_button_active");
-        drawTickets();
+        drawTickets(search.value);
     } else {
         active.style.visibility = "hidden";
         activeBtn.classList.remove("filters_button_active");
         activeBtn.classList.add("filters_button_inactive");
-        drawTickets();
+        drawTickets(search.value);
     }
 });
 
@@ -200,12 +203,12 @@ closedBtn.addEventListener("click", function () {
         closed.style.visibility = "visible";
         closedBtn.classList.remove("filters_button_inactive");
         closedBtn.classList.add("filters_button_active");
-        drawTickets();
+        drawTickets(search.value);
     } else {
         closed.style.visibility = "hidden";
         closedBtn.classList.remove("filters_button_active");
         closedBtn.classList.add("filters_button_inactive");
-        drawTickets();
+        drawTickets(search.value);
     }
 });
 
@@ -218,7 +221,7 @@ recentBtn.addEventListener("click", function () {
     oldestBtn.classList.remove("filters_button_inactive");
     oldestBtn.classList.add("filters_button_active");
     oldestBtn.style.display = "flex";
-    drawTickets();
+    drawTickets(search.value);
 });
 
 oldestBtn.addEventListener("click", function () {
@@ -230,5 +233,9 @@ oldestBtn.addEventListener("click", function () {
     recentBtn.classList.remove("filters_button_inactive");
     recentBtn.classList.add("filters_button_active");
     recentBtn.style.display = "flex";
-    drawTickets();
+    drawTickets(search.value);
+});
+
+search.addEventListener("input", function () {
+    drawTickets(this.value);
 });

@@ -52,10 +52,15 @@ class Ticket {
         }
         return $ticketsArray;
     }
-    static function getClientTickets($db, $clientId, $closed, $active, $recent) {
+    static function getClientTickets($db,$clientId,$search,$closed, $active, $recent) {
         $query = 'SELECT * FROM Ticket WHERE client_id = ?';
         $params = array($clientId);
 
+        if ($search!="") {
+            $query = $query . ' AND (title LIKE ? OR `desc` LIKE ?)';
+            array_push($params, '%'.$search.'%');
+            array_push($params, '%'.$search.'%');
+        }
 
         if ($closed=="true" and $active=="false") {
             $query = $query . ' AND status = "Closed"';
