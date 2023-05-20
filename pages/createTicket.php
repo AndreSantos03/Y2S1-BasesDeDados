@@ -32,10 +32,10 @@ $session = new Session();
             <p>Return</p>
         </div>
     </div>
-    <div class = "createTicketWrapper">
+    <div class = "big_box">
         <form action="/../actions/action_login.php" method="post">
-            <div class="title_box">
-                <input type="text" name="title" id="title">
+            <div class="titleBox">
+                <input type="text" name="title" id="title" placeholder="Enter Title">
             </div>
             <div>
                 <input type="text" name="description" id="description">
