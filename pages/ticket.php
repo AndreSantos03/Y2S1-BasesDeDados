@@ -59,9 +59,12 @@
             </div>
             <div class="ticket_desc_page">
                 <p><?=$ticket->desc?></p>
-                <p class="ticket_comments_title">Comentários</p>
+                <p class="ticket_comments_title">Comments</p>
                 <div class="ticket_comment">
                     <?php 
+                        if(count($comments) == 0){
+                            echo '<div class="comments_empty"><img src="../assets/homepage.png"><p>No comments yet...</p></div>';
+                        }
                         foreach($comments as $comment) {
                             $sender_name = User::nameFromId($db, $comment->sender_id);
                             $sender_privilege = User::privilegeFromId($db, $comment->sender_id);
@@ -79,17 +82,36 @@
                 </div>
             </div>
         </div>
-        <div class="ticket_comment_box">
-            <form action="../actions/action_sendcomment.php" method="POST">
-                <input type="hidden" name="csrf" value="<?= $_SESSION['csrf'] ?>">
-                <input type="hidden" name="ticket_id" value="<?= $_GET['id'] ?>">
-                <input id="comment" name="comment" placeholder="Make a comment"></input>
+        <?php
+        if ($ticket->status == 'Active') {
+            echo '
+            <div class="ticket_comment_box">
+                <form action="../actions/action_sendcomment.php" method="POST">
+                    <input type="hidden" name="csrf" value="' . $_SESSION['csrf'] . '">
+                    <input type="hidden" name="ticket_id" value="' . $_GET['id'] . '">
+                    <input id="comment" name="comment" placeholder="Make a comment"></input>
                     <button class="comment_send" type="submit">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />
                         </svg>
                     </button>
-            </form>
-        </div>
+                </form>
+            </div>';
+        }else if($ticket->status == 'Closed'){
+            echo '
+            <div class="ticket_comment_box">
+                <form action="../actions/action_sendcomment.php" method="POST">
+                    <input type="hidden" name="csrf" value="' . $_SESSION['csrf'] . '">
+                    <input type="hidden" name="ticket_id" value="' . $_GET['id'] . '">
+                    <input id="comment" name="comment" placeholder="Can\'t make a comment" disabled></input>
+                    <button class="comment_send" type="submit" disabled>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />
+                        </svg>
+                    </button>
+                </form>
+            </div>';
+        }
+        ?>
     </div>
 </body>
