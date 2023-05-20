@@ -114,17 +114,18 @@ function drawTicket(ticket) {
     ticketTitleIcon.appendChild(ticketTitlePath);
     ticketTitle.appendChild(ticketTitleIcon);
 
-    const ticketTitleText = document.createElement("p");
-    ticketTitleText.textContent = ticket.title;
+    const link = document.createElement('a');
+    link.href = '../pages/ticket.php?id=' + ticket.id;
+    link.textContent = ticket.title;
 
-    ticketTitle.appendChild(ticketTitleText);
+    ticketTitle.appendChild(link);
     ticketContent.appendChild(ticketTitle);
 
     const ticketDesc = document.createElement("div");
     ticketDesc.classList.add("ticket_desc");
 
     const ticketDescText = document.createElement("p");
-    ticketDescText.textContent = ticket.desc + "...";
+    ticketDescText.textContent = ticket.desc.substring(0, 85) + "...";
 
     ticketDesc.appendChild(ticketDescText);
     ticketContent.appendChild(ticketDesc);
