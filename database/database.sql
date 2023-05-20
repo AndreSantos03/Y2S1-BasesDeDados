@@ -33,7 +33,6 @@ CREATE TABLE Message (
     "sender_id" INTEGER NOT NULL,
     "message" TEXT NOT NULL,
     "datetime" TIMESTAMP NOT NULL,
-    FOREIGN KEY(ticket_id) REFERENCES Ticket(id),
     FOREIGN KEY(sender_id) REFERENCES User(UserId)
 );
 

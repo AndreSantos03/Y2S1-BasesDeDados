@@ -41,6 +41,34 @@ class User
         return $this->firstName . ' ' . $this->lastName;
     }
 
+    static function nameFromId(PDO $db, int $id): string
+    {
+        $stmt = $db->prepare('
+        SELECT FirstName, LastName
+        FROM User
+        WHERE UserId = ?
+      ');
+
+        $stmt->execute(array($id));
+        $user = $stmt->fetch();
+
+        return $user['FirstName'] . ' ' . $user['LastName'];
+    }
+
+    static function privilegeFromId(PDO $db, int $id): string
+    {
+        $stmt = $db->prepare('
+        SELECT Privilege
+        FROM User
+        WHERE UserId = ?
+      ');
+
+        $stmt->execute(array($id));
+        $user = $stmt->fetch();
+
+        return $user['Privilege'];
+    }
+
     function save($db, string $password)
     {
         $stmt = $db->prepare('
