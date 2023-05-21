@@ -1,6 +1,6 @@
 This prokect was aimed at developing an efficient platform for streamlined ticket tracking and management. The objective of this website is to empower users to submit, monitor, and resolve tickets in a prompt and effective manner.
 
-<img src="https://imgur.com/a/wwAm64E">
+<img src="https://imgur.com/B7fDmg0">
 
 
 <img src="https://imgur.com/a/pjgjkXi">
