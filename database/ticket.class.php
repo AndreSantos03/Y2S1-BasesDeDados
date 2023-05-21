@@ -8,7 +8,7 @@ class Ticket {
     public int $agent_id;
     public ?int $admin_id;
     public string $status;
-    public string $priority;
+    public string $department;
 
     public function __construct(?int $id, int $clientId, string $title, string $desc, string $datetime, int $agentId, ?int $adminId, string $status, string $priority) {
         $this->id = $id;
@@ -19,15 +19,15 @@ class Ticket {
         $this->agent_id = $agentId;
         $this->admin_id = $adminId;
         $this->status = $status;
-        $this->priority = $priority;
+        $this->department = $priority;
     }
 
     public function save($db) {
         $stmt = $db->prepare('
-            INSERT INTO Ticket (client_id, title, `desc`, `datetime`, agent_id, admin_id, status, priority)
+            INSERT INTO Ticket (client_id, title, `desc`, `datetime`, agent_id, admin_id, status, department)
             VALUES (?, ?, ?, ?, ?, ?, ?, ?);
         ');
-        $stmt->execute(array($this->client_id, $this->title, $this->desc, $this->datetime, $this->agent_id, $this->admin_id, $this->status, $this->priority));
+        $stmt->execute(array($this->client_id, $this->title, $this->desc, $this->datetime, $this->agent_id, $this->admin_id, $this->status, $this->department));
     }
     
     static function changeStatus($db,$ticket_id,$status) {
@@ -52,7 +52,7 @@ class Ticket {
             $ticket['agent_id'],
             $ticket['admin_id'],
             $ticket['status'],
-            $ticket['priority']
+            $ticket['department']
         );
     }
 
@@ -93,7 +93,7 @@ class Ticket {
                 $ticket['agent_id'],
                 $ticket['admin_id'],
                 $ticket['status'],
-                $ticket['priority']
+                $ticket['department']
             ));
         }
     
@@ -137,7 +137,7 @@ class Ticket {
                 $ticket['agent_id'],
                 $ticket['admin_id'],
                 $ticket['status'],
-                $ticket['priority']
+                $ticket['department']
             ));
         }
     
@@ -181,7 +181,7 @@ class Ticket {
                 $ticket['agent_id'],
                 $ticket['admin_id'],
                 $ticket['status'],
-                $ticket['priority']
+                $ticket['department']
             ));
         }
     

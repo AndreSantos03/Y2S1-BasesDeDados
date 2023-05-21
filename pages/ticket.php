@@ -59,7 +59,7 @@
                                 '<input type="hidden" name="csrf" value="' . $_SESSION['csrf'] . '"><button class="ticket_status_button" type="submit">Closed</button></form>';
                             }
                         } else {
-                            echo $ticket->status;
+                            echo '<p>' . $ticket->status . '</p>';
                         }
                     ?>
                     </div>
