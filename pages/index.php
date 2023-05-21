@@ -59,5 +59,5 @@ require_once(__DIR__ . '/../templates/common.tpl.php');
             <a href="/pages/register.php">Create an account</a>
         </div>
     </div>
-    <script src="../javascript/eye.js" defer></script>
+    <script src="../js/eye.js" defer></script>
 </body>

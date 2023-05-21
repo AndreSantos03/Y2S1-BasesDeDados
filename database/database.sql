@@ -15,11 +15,16 @@ CREATE TABLE User (
 CREATE TABLE Ticket (
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "client_id" INTEGER NOT NULL,
-    "status_id" INTEGER NOT NULL,
-    "last_message_id" INTEGER,
-    FOREIGN KEY(client_id) REFERENCES User(UserId),
-    FOREIGN KEY(status_id) REFERENCES Status(id),
-    FOREIGN KEY(last_message_id) REFERENCES Message(id)
+    "title" TEXT NOT NULL,
+    "desc" TEXT NOT NULL,
+    "datetime" TIMESTAMP NOT NULL,
+    "agent_id" INTEGER NOT NULL,
+    "admin_id" INTEGER,
+    "status" TEXT NOT NULL,
+    "department" TEXT NOT NULL,
+    FOREIGN KEY(agent_id) REFERENCES User(UserId),
+    FOREIGN KEY(admin_id) REFERENCES User(UserId),
+    FOREIGN KEY(client_id) REFERENCES User(UserId)
 );
 
 CREATE TABLE Message (
@@ -28,7 +33,6 @@ CREATE TABLE Message (
     "sender_id" INTEGER NOT NULL,
     "message" TEXT NOT NULL,
     "datetime" TIMESTAMP NOT NULL,
-    FOREIGN KEY(ticket_id) REFERENCES Ticket(id),
     FOREIGN KEY(sender_id) REFERENCES User(UserId)
 );
 
@@ -38,17 +42,4 @@ CREATE TABLE Attachment (
     "filename" TEXT NOT NULL,
     "file" BLOB NOT NULL,
     FOREIGN KEY(message_id) REFERENCES Message(id)
-);
-
-CREATE TABLE Status (
-    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
-    "ticket_id" INTEGER NOT NULL,
-    "agent_id" INTEGER NOT NULL,
-    "admin_id" INTEGER,
-    "status" TEXT NOT NULL,
-    "priority" TEXT NOT NULL,
-    "datetime" TIMESTAMP NOT NULL,
-    FOREIGN KEY(ticket_id) REFERENCES Ticket(id),
-    FOREIGN KEY(agent_id) REFERENCES User(UserId),
-    FOREIGN KEY(admin_id) REFERENCES User(UserId)
 );
