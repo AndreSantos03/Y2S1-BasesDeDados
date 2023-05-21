@@ -779,6 +779,7 @@ body {
 
 #select_settings {
     border: none;
+    color: #938F99;
     background-color: #d3b7eb;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;

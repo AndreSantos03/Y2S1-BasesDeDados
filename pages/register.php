@@ -24,7 +24,7 @@ require_once(__DIR__ . '/../templates/common.tpl.php');
     <div class="big_form_box_register">
         <div class="small_form_box">
             <h3 class="small_form_box_text">NEW MEMBERS</h3>
-            <button class="small_form_box_btnHelp">Need help?</button>
+            <button class="small_form_box_btnHelp" style="visibility:hidden;">Need help?</button>
         </div>
         <div class="wrapper">
             <form action="/../actions/action_register.php" method="post">
@@ -46,7 +46,7 @@ require_once(__DIR__ . '/../templates/common.tpl.php');
                         </svg></span>
                     <input type="password" id="password" name="password" placeholder="Enter your password">
                 </div>
-                <div class="remember_forgot">
+                <div class="remember_forgot" style="visibility:hidden;">
                     <label class="container">
                         <input type="checkbox" checked="checked">
                         <span class="checkmark"></span>
