@@ -4,11 +4,11 @@ This prokect was aimed at developing an efficient platform for streamlined ticke
 
 
 
-<img src="https://imgur.com/a/pjgjkXi">
+<img src="assets\BYF6LxG.png">
 
 
 
-<img src="https://imgur.com/a/BzPiRtK">
+<img src="assets\RbOfGL7.png">
 
 
-<img src="https://imgur.com/a/BB8L5vO">
+<img src="assets\uEvJGGb.png">
