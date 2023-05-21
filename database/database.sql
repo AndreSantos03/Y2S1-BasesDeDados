@@ -21,7 +21,7 @@ CREATE TABLE Ticket (
     "agent_id" INTEGER NOT NULL,
     "admin_id" INTEGER,
     "status" TEXT NOT NULL,
-    "priority" TEXT NOT NULL,
+    "department" TEXT NOT NULL,
     FOREIGN KEY(agent_id) REFERENCES User(UserId),
     FOREIGN KEY(admin_id) REFERENCES User(UserId),
     FOREIGN KEY(client_id) REFERENCES User(UserId)
