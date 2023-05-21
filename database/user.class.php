@@ -148,6 +148,24 @@ class User{
             $user['Department']
         );
     }
+
+    static function getDepartmentAgents ($db,$department){
+        $stmt = $db->prepare('
+        SELECT UserId
+        FROM User 
+        WHERE Department = ? AND Privilege = "Agent"
+      ');
+
+        $stmt->execute(array($department));
+        $agents = $stmt->fetchAll();
+        $agentsArray = array();
+
+        foreach ($agents as $agent) {
+            array_push($agentsArray, $agent['UserId']);
+        }
+
+        return $agentsArray;
+    }
   
     static function updateUserInfo($db, int $id, ?string $city, ?string $country, ?string $department, ?string $phone){
         $params = array();
