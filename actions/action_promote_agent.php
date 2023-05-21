@@ -7,6 +7,6 @@ require_once(__DIR__ . '/../database/connection.db.php');
 require_once(__DIR__ . '/../database/user.class.php');
 
 $db = getDatabaseConnection();
-User::promoteAgent($db,intval($_GET['id']));
+User::promoteAgent($db, intval($_POST['id']));
 header('Location: ../pages/users.php');
 ?>

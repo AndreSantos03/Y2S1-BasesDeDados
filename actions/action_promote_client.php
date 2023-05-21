@@ -7,7 +7,6 @@ require_once(__DIR__ . '/../database/connection.db.php');
 require_once(__DIR__ . '/../database/user.class.php');
 
 $db = getDatabaseConnection();
-User::promoteClient($db,intval($_GET['id']));
+User::promoteClient($db, intval($_POST['id']));
 header('Location: ../pages/users.php');
-
 ?>
