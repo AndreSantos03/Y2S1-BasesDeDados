@@ -1,14 +1,26 @@
-This prokect was aimed at developing an efficient platform for streamlined ticket tracking and management. The objective of this website is to empower users to submit, monitor, and resolve tickets in a prompt and effective manner.
+#Projeto LTW Turma 15 Grupo 03
 
+##Objective
+
+In this project, we devoloped a website in which where an organization (a company, for example) can streamline and easily manage trouble tickets.
+
+Using html, css, php and js, we thus created such website in which there are users (the ones creating the tickets), admins allocated to designated departments who will answer tickets and admins that have control over who's admin and who's not. Said information is accessed and stored along a sqlite3 database.
+
+We also put focus into security and put into use various methods to prevent sql injection and storing passwords in a hashed secure ways.
+
+##UI
+
+**Register Page**
 <img src="assets\B7fDmg0.png">
 
 
-
+**Main Page**
 <img src="assets\BYF6LxG.png">
 
 
-
+**Create Ticket Page**
 <img src="assets\RbOfGL7.png">
 
 
+**Handle Tickets Page**
 <img src="assets\uEvJGGb.png">
