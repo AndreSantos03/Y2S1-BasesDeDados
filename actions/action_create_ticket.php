@@ -10,7 +10,7 @@ if ($_SESSION['csrf'] !== $_POST['csrf']) {
     error_log('CSRF token verification failed for user ' . $_POST['email']);
 } else {
     $db = getDatabaseConnection();
-    $ticket = new Ticket(null,$session->getId(), $_POST['title'], $_POST['description'], date('Y-m-d H:i:s'),1,null,'Active','Low');
+    $ticket = new Ticket(null,$session->getId(), $_POST['title'], $_POST['description'], date('Y-m-d H:i:s'),1,null,'Active',$_POST['department']);
     $ticket->save($db);
     header('Location: ../pages');
 }

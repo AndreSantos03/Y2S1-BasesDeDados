@@ -41,6 +41,28 @@ class User
         return $this->firstName . ' ' . $this->lastName;
     }
 
+    static function promoteClient(PDO $db, int $id)
+    {
+        $stmt = $db->prepare('
+        UPDATE User
+        SET Privilege = "Agent"
+        WHERE UserId = ?
+      ');
+
+        $stmt->execute(array($id));
+    }
+
+    static function promoteAgent(PDO $db, int $id)
+    {
+        $stmt = $db->prepare('
+        UPDATE User
+        SET Privilege = "Admin"
+        WHERE UserId = ?
+      ');
+
+        $stmt->execute(array($id));
+    }
+    
     static function nameFromId(PDO $db, int $id): string
     {
         $stmt = $db->prepare('
@@ -129,5 +151,87 @@ class User
         );
     }
 
+    static function getClients(PDO $db){
+        $stmt = $db->prepare('
+        SELECT UserId, FirstName, LastName, City, Country, Phone, Email, Privilege,Department
+        FROM User 
+        WHERE Privilege = "Client"
+      ');
+
+        $stmt->execute();
+        $clients = $stmt->fetchAll();
+        $clientsArray = array();
+
+        foreach ($clients as $client) {
+            array_push($clientsArray, new User(
+                $client['UserId'],
+                $client['FirstName'],
+                $client['LastName'],
+                $client['City'],
+                $client['Country'],
+                $client['Phone'],
+                $client['Email'],
+                $client['Privilege'],
+                $client['Department']
+            ));
+        }
+
+        return $clientsArray;
+    }
+    static function getAgents(PDO $db){
+        $stmt = $db->prepare('
+        SELECT UserId, FirstName, LastName, City, Country, Phone, Email, Privilege,Department
+        FROM User 
+        WHERE Privilege = "Agent"
+      ');
+
+        $stmt->execute();
+        $agents = $stmt->fetchAll();
+        $agentsArray = array();
+
+        foreach ($agents as $agent) {
+            array_push($agentsArray, new User(
+                $agent['UserId'],
+                $agent['FirstName'],
+                $agent['LastName'],
+                $agent['City'],
+                $agent['Country'],
+                $agent['Phone'],
+                $agent['Email'],
+                $agent['Privilege'],
+                $agent['Department']
+            ));
+        }
+
+        return $agentsArray;
+    }
+
+    static function getAdmins(PDO $db){
+        $stmt = $db->prepare('
+        SELECT UserId, FirstName, LastName, City, Country, Phone, Email, Privilege,Department
+        FROM User 
+        WHERE Privilege = "Admin"
+      ');
+
+        $stmt->execute();
+        $admins = $stmt->fetchAll();
+        $adminsArray = array();
+
+        foreach ($admins as $admin) {
+            array_push($adminsArray, new User(
+                $admin['UserId'],
+                $admin['FirstName'],
+                $admin['LastName'],
+                $admin['City'],
+                $admin['Country'],
+                $admin['Phone'],
+                $admin['Email'],
+                $admin['Privilege'],
+                $admin['Department']
+            ));
+        }
+
+        return $adminsArray;
+    }
 }
 ?>
