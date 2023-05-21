@@ -278,6 +278,24 @@ body {
 
 }
 
+.op_box input{
+    font-family: 'Montserrat';
+    text-align: center;
+    background-color: #d3b7eb;
+    border: none;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.op_box input:focus{
+    outline: none;
+  }
+
+.save_button_settings{
+    display: flex;
+    justify-content: center;
+}
+
 #login_btnSubmit {
     background-color: #6750A4;
     border: none;

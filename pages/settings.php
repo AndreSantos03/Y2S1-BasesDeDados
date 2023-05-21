@@ -55,9 +55,11 @@ $session = new Session();
                 
                 <div class="op_box">
                     <p>First Name</p>
+                    <output type="text" id="firstName" name="firstName">
                 </div>
                 <div class="op_box">
                     <p>Last Name</p>
+                    <output type="text" id="lastName" name="lastName">
                 </div>
                 <div class="op_box">
                     <p>Country</p>
@@ -73,13 +75,17 @@ $session = new Session();
                 </div>
                 <div class="op_box">
                     <p>Email</p>
+                    <output type="text" id="email" name="email">
                 </div>
                 <div class="op_box">
                     <p>Department</p>
                 </div>
+                <div class='save_button_settings'>
                 <div class="btnSubmit">
                     <button type="submit" id="login_btnSubmit">SAVE</button>
                 </div>
+                </div>
+
             </form>
         </div>
     </div>
