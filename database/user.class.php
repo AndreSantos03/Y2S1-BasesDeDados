@@ -149,6 +149,12 @@ class User
             $user['Privilege'],
             $user['Department']
         );
+  
+    static function updateUserInfo($db, int $id, ?string $city, ?string $country, ?string $phone){
+        $stmt = $db->prepare('
+            UPDATE User SET City = ?, Country = ?, Phone = ? WHERE UserId = ?;
+        ');
+        $stmt->execute(array($city, $country, $phone, $id));
     }
 
     static function getClients(PDO $db){
@@ -233,5 +239,6 @@ class User
 
         return $adminsArray;
     }
+
 }
 ?>
