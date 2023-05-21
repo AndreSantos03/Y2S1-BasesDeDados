@@ -32,4 +32,17 @@ $session = new Session();
             <p>Return</p>
         </div>
     </div>
+    <div class="main_box">
+        <div class="box_header_create">
+            <p class="box_header_title">Create Ticket</p>
+        </div>
+        <form id="form_create_ticket"action="../actions/action_create_ticket.php" method="POST">
+            <input type="hidden" name="csrf" value="<?= $_SESSION['csrf'] ?>">
+            <input id="create_ticket_title" type="text" name="title" placeholder="Enter the title" required>
+            <textarea type="text" id="create_ticket_desc" name="description" placeholder="Enter the description" required></textarea>
+            <div class="btnSubmit">
+                    <button type="submit" id="login_btnSubmit">CREATE</button>
+                </div>
+        </form>
+    </div>
 </body>
