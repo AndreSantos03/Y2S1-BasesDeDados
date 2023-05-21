@@ -17,6 +17,7 @@
   $ticket = Ticket::getTicket($db, $_GET['id']);
   $comments = Comment::GetComments($db, $_GET['id']);
   $client_name = User::nameFromId($db, $ticket->client_id);
+  $user
 ?>
 <!DOCTYPE html>
 <html>
@@ -45,11 +46,23 @@
     </div>
         <div class="main_box_ticket">
             <div class="box_header_ticket">
-                <div class="ticket_status_spacer">
-                    <div class="ticket_status">
-                        <p><?=$ticket->status?></p>
+                <div class="ticket_status">
+                    <?php
+                        if(User::privilegeFromId($db,$session->getId())=="Agent" || User::privilegeFromId($db,$session->getId())=="Admin"){
+                            if($ticket->status == "Active"){
+                                echo '<form action="../actions/action_close_ticket.php" method="POST">' .
+                                '<input type="hidden" name="ticket_id" value="' . $_GET['id'] . '">' .
+                                '<input type="hidden" name="csrf" value="' . $_SESSION['csrf'] . '"><button class="ticket_status_button" type="submit">Active</button></form>';
+                            } else {
+                                echo '<form action="../actions/action_open_ticket.php" method="POST">' .
+                                '<input type="hidden" name="ticket_id" value="' . $_GET['id'] . '">' .
+                                '<input type="hidden" name="csrf" value="' . $_SESSION['csrf'] . '"><button class="ticket_status_button" type="submit">Closed</button></form>';
+                            }
+                        } else {
+                            echo $ticket->status;
+                        }
+                    ?>
                     </div>
-                </div>
                 <div class="ticket_title">
                     <p><?=$ticket->title?></p>
                 </div>
