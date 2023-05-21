@@ -40,11 +40,11 @@ $session = new Session();
             <input type="hidden" name="csrf" value="<?= $_SESSION['csrf'] ?>">
             <input id="create_ticket_title" type="text" name="title" placeholder="Enter the title" required>
             <select name="department">
-                <option value="accounting">Accounting</option>
-                <option value="human_resources">Human Resources</option>
-                <option value="marketing">Marketing</option>
-                <option value="development">Development</option>
-                <option value="quality_control">Quality Control</option>
+                <option value="Accounting">Accounting</option>
+                <option value="Human Resources">Human Resources</option>
+                <option value="Marketing">Marketing</option>
+                <option value="Development">Development</option>
+                <option value="Quality Control">Quality Control</option>
             </select>
             <textarea type="text" id="create_ticket_desc" name="description" placeholder="Enter the description" required></textarea>
             <div class="btnSubmit">

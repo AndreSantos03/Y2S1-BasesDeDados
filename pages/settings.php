@@ -3,8 +3,12 @@ declare(strict_types=1);
 
 require_once(__DIR__ . '/../utils/session.php');
 require_once(__DIR__ . '/../templates/common.tpl.php');
+require_once(__DIR__ . '/../database/connection.db.php');
+require_once(__DIR__ . '/../database/user.class.php');
 
 $session = new Session();
+$db = getDatabaseConnection();
+$user = User::getUser($db,$session->getId());
 
 ?>
 <!DOCTYPE html>
@@ -32,61 +36,56 @@ $session = new Session();
             <p>Return</p>
         </div>
     </div>
-    <div class="settings_box"> 
-        <div class="settings_header">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 22 23" stroke-width="1.5"
-                stroke="currentColor" class="w-6 h-6">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                    d="M10.343 3.94c.09-.542.56-.94 1.11-.94h1.093c.55 0 1.02.398 1.11.94l.149.894c.07.424.384.764.78.93.398.164.855.142 1.205-.108l.737-.527a1.125 1.125 0 011.45.12l.773.774c.39.389.44 1.002.12 1.45l-.527.737c-.25.35-.272.806-.107 1.204.165.397.505.71.93.78l.893.15c.543.09.94.56.94 1.109v1.094c0 .55-.397 1.02-.94 1.11l-.893.149c-.425.07-.765.383-.93.78-.165.398-.143.854.107 1.204l.527.738c.32.447.269 1.06-.12 1.45l-.774.773a1.125 1.125 0 01-1.449.12l-.738-.527c-.35-.25-.806-.272-1.203-.107-.397.165-.71.505-.781.929l-.149.894c-.09.542-.56.94-1.11.94h-1.094c-.55 0-1.019-.398-1.11-.94l-.148-.894c-.071-.424-.384-.764-.781-.93-.398-.164-.854-.142-1.204.108l-.738.527c-.447.32-1.06.269-1.45-.12l-.773-.774a1.125 1.125 0 01-.12-1.45l.527-.737c.25-.35.273-.806.108-1.204-.165-.397-.505-.71-.93-.78l-.894-.15c-.542-.09-.94-.56-.94-1.109v-1.094c0-.55.398-1.02.94-1.11l.894-.149c.424-.07.765-.383.93-.78.165-.398.143-.854-.107-1.204l-.527-.738a1.125 1.125 0 01.12-1.45l.773-.773a1.125 1.125 0 011.45-.12l.737.527c.35.25.807.272 1.204.107.397-.165.71-.505.78-.929l.15-.894z" />
-                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-            </svg>
-            <div class="settings_title">
-                <p>Settings</p>
-            </div>
+    <div class="main_box"> 
+        <div class="box_header_ticket">
+            <p class="box_header_title">Settings</p>
         </div>
-        <div class="profile_box">
-            <div class="profile_header"> 
-                <div class="profile_title">
-                    <p id="settings_op">Profile</p>
-                </div>
-            </div> 
             <form action="../actions/action_updateInfo.php" method="POST">
                 <input type="hidden" name="csrf" value="<?= $_SESSION['csrf'] ?>">
-                
                 <div class="op_box">
                     <p>First Name</p>
-                    <output type="text" id="firstName" name="firstName">
+                    <output id="firstName" name="firstName"><?= $user->firstName ?></output>
                 </div>
                 <div class="op_box">
                     <p>Last Name</p>
-                    <output type="text" id="lastName" name="lastName">
+                    <output id="lastName" name="lastName"><?= $user->lastName ?></output>
                 </div>
                 <div class="op_box">
                     <p>Country</p>
-                    <input type="text" id="country" name="country">
+                    <input type="text" id="country" name="country" placeholder="<?= $user->country ?>">
                 </div>
                 <div class="op_box">
                     <p>City</p>
-                    <input type="text" id="city" name="city">
+                    <input type="text" id="city" name="city" placeholder="<?= $user->city ?>">
                 </div>
                 <div class="op_box">
                     <p>Phone</p>
-                    <input type="text" id="phone" name="phone">
+                    <input type="text" id="phone" name="phone" placeholder="<?= $user->phone ?>">
                 </div>
                 <div class="op_box">
                     <p>Email</p>
-                    <output type="text" id="email" name="email">
+                    <output id="email" name="email"><?= $user->email ?></output>
                 </div>
-                <div class="op_box">
-                    <p>Department</p>
+                <?php
+                if ($user->privilege == "Agent" || $user->privilege == "Admin") {
+                    echo "<div class='op_box'>";
+                    echo "<p>Department</p>";
+                    echo             '<select name="department" id="select_settings">
+                    <option value="" disabled selected>' . $user->department .'</option>
+                    <option value="Accounting">Accounting</option>
+                    <option value="Human Resources">Human Resources</option>
+                    <option value="Marketing">Marketing</option>
+                    <option value="Development">Development</option>
+                    <option value="Quality Control">Quality Control</option>
+                </select>';
+                    echo "</div>";
+                }
+                ?>
+                <div class="save_button_settings">
+                    <div class="btnSubmit">
+                        <button type="submit" id="login_btnSubmit">SAVE</button>
+                    </div>
                 </div>
-                <div class='save_button_settings'>
-                <div class="btnSubmit">
-                    <button type="submit" id="login_btnSubmit">SAVE</button>
-                </div>
-                </div>
-
             </form>
-        </div>
     </div>
 </body>

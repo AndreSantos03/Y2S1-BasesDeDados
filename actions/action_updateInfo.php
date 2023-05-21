@@ -11,7 +11,8 @@ if ($_SESSION['csrf'] !== $_POST['csrf']) {
 } else {
     $db = getDatabaseConnection();
     $id = $session->getId();
-    User::updateUserInfo($db,$id,$_POST['city'],$_POST['country'],$_POST['phone']);
+    $department = $_POST['department'];
+    User::updateUserInfo($db,$id,$_POST['city'],$_POST['country'],$department,$_POST['phone']);
     header('Location: ../pages');
 }
 ?>

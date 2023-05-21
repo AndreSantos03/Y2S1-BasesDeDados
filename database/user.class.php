@@ -1,8 +1,6 @@
 <?php
-declare(strict_types=1);
 
-class User
-{
+class User{
     public ?int $id;
     public string $firstName;
     public string $lastName;
@@ -149,14 +147,44 @@ class User
             $user['Privilege'],
             $user['Department']
         );
-  
-    static function updateUserInfo($db, int $id, ?string $city, ?string $country, ?string $phone){
-        $stmt = $db->prepare('
-            UPDATE User SET City = ?, Country = ?, Phone = ? WHERE UserId = ?;
-        ');
-        $stmt->execute(array($city, $country, $phone, $id));
     }
-
+  
+    static function updateUserInfo($db, int $id, ?string $city, ?string $country, ?string $department, ?string $phone){
+        $params = array();
+        $query = 'UPDATE User SET';
+        
+        if ($city !== null && $city !== '') {
+            $query .= ' City = ?,';
+            $params[] = $city;
+        }
+        
+        if ($country !== null && $country !== '') {
+            $query .= ' Country = ?,';
+            $params[] = $country;
+        }
+        
+        if ($department !== null && $department !== '') {
+            $query .= ' Department = ?,';
+            $params[] = $department;
+        }
+        
+        if ($phone !== null && $phone !== '') {
+            $query .= ' Phone = ?,';
+            $params[] = $phone;
+        }
+        
+        // Remove a vírgula extra se houver algum campo para atualizar
+        if (!empty($params)) {
+            $query = rtrim($query, ',');
+            $query .= ' WHERE UserId = ?;';
+            $params[] = $id;
+            
+            $stmt = $db->prepare($query);
+            $stmt->execute($params);
+        }
+    }
+    
+    
     static function getClients(PDO $db){
         $stmt = $db->prepare('
         SELECT UserId, FirstName, LastName, City, Country, Phone, Email, Privilege,Department
