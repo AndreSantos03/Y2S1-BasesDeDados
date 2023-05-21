@@ -1,1 +1,13 @@
-[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-c66648af7eb3fe8bc4f294546bfd86ef473780cde1dea487d3c4ff354943c9ae.svg)](https://classroom.github.com/online_ide?assignment_repo_id=10489677&assignment_repo_type=AssignmentRepo)
+This prokect was aimed at developing an efficient platform for streamlined ticket tracking and management. The objective of this website is to empower users to submit, monitor, and resolve tickets in a prompt and effective manner.
+
+!(https://imgur.com/a/wwAm64E)
+
+
+!(https://imgur.com/a/pjgjkXi)
+
+
+!(https://imgur.com/a/BzPiRtK)
+
+
+
+!(https://imgur.com/a/BB8L5vO)
